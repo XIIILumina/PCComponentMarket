@@ -6,9 +6,9 @@
 */
 return [
     "host" => "localhost",
-    "port" => "8889",
+    "port" => "3306",
     "dbname" => "fancytodo",
     "user" => "root",
-    "password" => "root",
+    "password" => "",
     "charset" => "UTF8"
 ];
