@@ -3,8 +3,9 @@
 $route = parse_url($_SERVER['REQUEST_URI'])["path"];
 
 switch ($route) {
+
     case '/':
-        require "./Controllers/book.controllers.php";
+        require "./Controllers/index.php";
         break;
         
     default:
