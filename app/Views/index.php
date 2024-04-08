@@ -1,3 +1,4 @@
-<? require_once "./app/Views/Components/head.php" ?>
-<h1>Hello from index 5551</h1>
-<? require_once "./app/Views/Components/footer.php" ?>
+<? include "./app/Views/Components/head.php" ?>
+<? include "./app/Views/Components/navbar.php" ?>
+<h1>Hello from index</h1>
+<? include "./app/Views/Components/footer.php" ?>
