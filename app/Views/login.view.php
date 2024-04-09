@@ -1,5 +1,5 @@
 
-<h1>Hello from index</h1>
+<h1>Hello from Login</h1>
 
 <?php
 require_once "./app/Views/Components/head.php";
