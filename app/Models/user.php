@@ -1,12 +1,12 @@
 <?php
 
-require_once "./DbConnect.class.php";
+require_once "../app/Core/DbConnect.php";
 
 class User {
     private $db;
 
-    public function __construct($config) {
-        $this->db = new DbConnect($config);
+    public function __construct() {
+        $this->db = new DbConnect();
     }
 
     public function createUser(string $email, string $password, string $username) {

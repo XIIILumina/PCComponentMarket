@@ -7,7 +7,7 @@
 
 
 // Define database connection parameters as an array
-return [
+[
     "host" => "localhost",
     "port" => "3306",
     "dbname" => "fancytodo",

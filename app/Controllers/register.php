@@ -1,6 +1,7 @@
 <?php
 require_once "../app/Core/DbConnect.php";
-
+require "../app/Models/user.php";
+$usermodel = new User;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
     $username = trim($_POST["username"]);
@@ -9,6 +10,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Hash the password for security
     $password_hash = password_hash($password, PASSWORD_DEFAULT);
+
+    $usermodel->createUser($email, $password_hash, $username);
 
     try {
         // Create a new instance of DbConnect to establish a database connection
