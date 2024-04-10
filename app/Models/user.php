@@ -1,50 +1,51 @@
 <?php
 
-require_once "../app/Core/DbConnect.php";
+require_once "../app/Core/DBConnect.php";
 
-class User {
+class userModel {
+
     private $db;
 
     public function __construct() {
-        $this->db = new DbConnect();
+        $this->db = new DBConnect();
     }
 
     public function createUser(string $email, string $password, string $username) {
-        try {
-            $pdo = $this->db->dbconn;
+        $quary = $this->db->dbconn->prepare("INSERT INTO Users (Username, Password, Email) VALUES (:username,:password,:email)");
+        $quary->execute([':username' => $username, ':password' => $password , ':email' => $email]);
+        return $quary->fetchAll();
+    }
 
-            // Hash the password for security
-            $password_hash = password_hash($password, PASSWORD_DEFAULT);
+    public function checkIfUserExsistsByUsername(string $username) {
 
-            $stmt = $pdo->prepare("INSERT INTO Users (Username, Password, Email) VALUES (?, ?, ?)");
-            $stmt->execute([$username, $password_hash, $email]);
-
-            return true; // Registration successful
-        } catch (PDOException $e) {
-            // Registration failed
+        $quary = $this->db->dbconn->prepare("SELECT * FROM Users WHERE username = :username");
+        $quary->execute([':username' => $username]);
+        if($quary->fetchAll() != []){
             return false;
+        }else{
+            return true;
         }
     }
 
-    public function loginUser(string $username, string $password) {
-        try {
-            $pdo = $this->db->dbconn;
+    public function checkIfUserExsistsByEmail(string $email) {
 
-            // Retrieve user by username
-            $stmt = $pdo->prepare("SELECT UserID, Username, Password FROM Users WHERE Username = ?");
-            $stmt->execute([$username]);
-            $user = $stmt->fetch();
-
-            if ($user && password_verify($password, $user['Password'])) {
-                // Password is correct
-                return $user; // Return user data
-            } else {
-                // Invalid username or password
-                return false;
-            }
-        } catch (PDOException $e) {
-            // Login process failed
+        $quary = $this->db->dbconn->prepare("SELECT * FROM Users WHERE email = :email");
+        $quary->execute([':email' => $email]);
+        if($quary->fetchAll() != []){
             return false;
+        }else{
+            return true;
         }
+    }
+
+    public function loginUser(string $username ,string $password)
+    {
+        $quary = $this->db->dbconn->prepare("SELECT * FROM users WHERE username = :username");
+        $quary->execute([':username' => $username]);
+        $user = $quary->fetch();
+        if($user && password_verify($password , $user['Password'])){
+            return $user;
+        }
+        return false;
     }
 }

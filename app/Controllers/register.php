@@ -1,39 +1,52 @@
 <?php
-require_once "../app/Core/DbConnect.php";
 require "../app/Models/user.php";
-$usermodel = new User;
+require "../app/Core/Validator.php";
+
+$errors = [];
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $usermodel = new userModel;
+
+    if(!isset($_POST["username"]) || !isset($_POST["email"]) || !isset($_POST["password"])){
+        $errors[] = "All fields are required";
+    }
+
     // Retrieve form data
     $username = trim($_POST["username"]);
     $email = trim($_POST["email"]);
-    $password = $_POST["password"]; // Plain text password from the form
+    $password = $_POST["password"];
 
-    // Hash the password for security
-    $password_hash = password_hash($password, PASSWORD_DEFAULT);
-
-    $usermodel->createUser($email, $password_hash, $username);
-
-    try {
-        // Create a new instance of DbConnect to establish a database connection
-        $db = new DbConnect();
-        $pdo = $db->dbconn;
-
-        $stmt = $pdo->prepare("INSERT INTO Users (Username, Password, Email) VALUES (:username, :password, :email)");
-        $stmt->execute([
-            ':username' => $username,
-            ':password' => $password_hash,
-            ':email' => $email,
-        ]);
-
-        // Registration successful
-        $message = "Registration successful!";
-    } catch (PDOException $e) {
-        // Registration failed
-        $error = "Registration failed. Please try again.";
+    if(!Validator::Email($email)){
+        $errors[] = "Email is not valid";
     }
+
+    if(!Validator::Password($password)){
+        $errors[] = "Password is not valid";
+    }
+
+    if(!Validator::String($username)){
+        $errors[] = "Username is not valid";
+    }
+
+    if(!$usermodel->checkIfUserExsistsByUsername($username)){
+        $errors[] = "User already exists with that username";
+    }
+
+    if(!$usermodel->checkIfUserExsistsByEmail($email)){
+        $errors[] = "User already exists with that email";
+    }
+
+    if(empty($errors)){
+        // Hash the password for security
+        $password = password_hash($password, PASSWORD_DEFAULT);
+
+        $return = $usermodel->createUser($email, $password, $username);
+        header("Location: /login");
+    }
+
 }
 
-// Load the view file
 $title = "Register";
 require_once "../app/Views/register.view.php";
 ?>
