@@ -1,3 +1,3 @@
 <?php
 $title = "index";
-require_once "../app/Views/index.php";
+require_once "../app/Views/index.view.php";

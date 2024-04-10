@@ -4,7 +4,10 @@
     Dns driver can be set in DbConnect.class.php
     Set so you can connect to your database
 */
-[
+
+
+// Define database connection parameters as an array
+return [
     "host" => "localhost",
     "port" => "3306",
     "dbname" => "fancytodo",
