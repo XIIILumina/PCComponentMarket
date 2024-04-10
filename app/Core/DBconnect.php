@@ -4,6 +4,7 @@ class DbConnect {
     public $dbconn;
     private $config;
 
+<<<<<<< HEAD
     function __construct() {
         // Load database configuration
         $this->config = require_once "../app/config.php";
@@ -25,6 +26,14 @@ class DbConnect {
             // Handle database connection error
             throw new Exception("Database connection error: " . $e->getMessage());
         }
+=======
+    function __construct() //connects to the db. defualt mysql
+    {
+        $this->config = require_once "../app/config.php";
+        $this->dbconn = new PDO ('mysql:'.http_build_query($this->config,"",";"));
+        $this->dbconn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $this->dbconn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+>>>>>>> refs/remotes/origin/main
     }
 
     function __destruct() {

@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 /*
     Can add the routs and the conntroller
 */
@@ -19,3 +20,7 @@ if (array_key_exists($url, $routes)) {
 }
 
 
+=======
+require "../app/Core/Util.php"; //for debbuging
+require "../app/router.php";
+>>>>>>> refs/remotes/origin/main
