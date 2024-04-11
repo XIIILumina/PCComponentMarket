@@ -49,7 +49,7 @@ class userModel {
         if($user && password_verify($password , $user['Password'])){
             return $user;
         }
-        return false;
+        return false;   
     }
 
     public function userChangePassword(int $UserID , string $newPassword)

@@ -1,7 +1,11 @@
-<nav>
-    <ul>
-        <li class="cursor-pointer text-blue-500 underline"><a href="/">Home</a></li>
-        <li class="cursor-pointer text-blue-500 underline"><a href="/login">Login</a></li>
-        <li class="cursor-pointer text-blue-500 underline"><a href="/register">Register</a></li>
-    </ul>
-</nav>
+<nav class="flex justify-between">
+    <div>
+     <img src="logo.png" alt="Logo" class="h-12 w-auto">
+    </div>
+    <div>
+      <a href="/register" class="text-white mx-2 hover:border hover:border-white transition duration-300">Register</a>
+      <a href="/login" class="text-white mx-2 hover:border hover:border-white transition duration-300">Login</a>
+      <a href="/" class="text-white mx-2 hover:border hover:border-white transition duration-300">Home</a>
+      <a href="/todo" class="text-white mx-2 hover:border hover:border-white transition duration-300">ToDo</a>
+    </div>
+  </nav>
