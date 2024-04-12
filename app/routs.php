@@ -14,4 +14,5 @@ return [
     '/todo/delete' => '../app/Controllers/todo/index.php',
     '/todo/show' => '../app/Controllers/todo/index.php',
     '/todo/edit' => '../app/Controllers/todo/index.php',
+    '/logout' => '../app/Controllers/logout.php',
 ];

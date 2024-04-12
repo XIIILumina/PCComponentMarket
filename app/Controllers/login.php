@@ -1,11 +1,11 @@
 <?php
+session_start();
 require "../app/Models/user.php";
 require "../app/Core/Validator.php";
 
 $errors = [];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
     $usermodel = new userModel;
 
     if(!isset($_POST["username"]) || !isset($_POST["password"])){
@@ -16,30 +16,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["password"];
 
     if(!Validator::String($username)){
-        $errors[] = "Email is not username";
+        $errors[] = "Username is invalid";
     }
 
     if(!Validator::String($password)){
-        $errors[] = "Email is not password";
-    }
-
-    if($usermodel->checkIfUserExsistsByUsername($username)){
-        $errors[] = "No user with that username exists";
+        $errors[] = "Password is invalid";
     }
 
     if(empty($errors)){
-
         $user = $usermodel->loginUser($username , $password);
 
         if($user != false){
             $_SESSION["user"] = $user;
-            header("Location: /");
-        }else{
+            // Redirect after successful login
+            header("Location: todo");
+            exit; // Ensure that no other output interferes with the header redirect
+        } else {
             $errors[] = "Invalid password";
         }
-
     }
-
 }
 
 // Load the login view file
