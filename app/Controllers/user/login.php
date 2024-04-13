@@ -39,5 +39,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 // Load the login view file
 $title = "Login";
-require_once "../app/Views/login.view.php";
+require_once "../app/Views/user/login.view.php";
 ?>

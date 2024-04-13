@@ -48,5 +48,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 $title = "Register";
-require_once "../app/Views/register.view.php";
+require_once "../app/Views/user/register.view.php";
 ?>
