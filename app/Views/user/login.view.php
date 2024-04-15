@@ -28,6 +28,8 @@
                 }
             }
         ?>
+        <a href="/register"><p class="text-blue-500 decoration-underline text-center">Dont have an account?</p></a>
+        <a href="/lostPassword"><p class="text-blue-500 decoration-underline text-center">Forgot your password?</p></a>
     </div>
 </div>
 

@@ -35,7 +35,7 @@
                 }
             }
         ?>
-
+        <a href="/login"><p class="text-blue-500 decoration-underline text-center">Have a account?</p></a>
     </div>
 </div>
 
