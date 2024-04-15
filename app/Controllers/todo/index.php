@@ -1,7 +1,7 @@
 <?php
 $title = "todo";
 
-session_start();
+require_once "../app/Core/Session.php";
 
 if (isset($_SESSION['user'])) {
     $loggedInUser = $_SESSION['user'];

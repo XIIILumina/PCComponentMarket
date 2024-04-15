@@ -1,0 +1,4 @@
+<?php
+session_start();
+
+session_set_cookie_params(3600 * 24); // save session for a day

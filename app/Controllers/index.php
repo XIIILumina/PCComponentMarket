@@ -1,10 +1,7 @@
 <?php
-session_start();
+require_once "../app/Core/Session.php";
 
 $title = "index";
-
-// End the session
-session_destroy();
 
 require_once "../app/Views/index.view.php";
 
