@@ -12,6 +12,8 @@ class userModel {
 
     public function createUser(string $email, string $password, string $username)
     {
+        $username = htmlspecialchars($username);
+        $email = htmlspecialchars($email);
         $quary = $this->db->dbconn->prepare("INSERT INTO Users (Username, Password, Email) VALUES (:username,:password,:email)");
         $quary->execute([':username' => $username, ':password' => $password , ':email' => $email]);
         return $quary->fetchAll();
