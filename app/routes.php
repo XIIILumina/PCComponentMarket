@@ -15,4 +15,9 @@ return [
     '/todo/delete' => '../app/Controllers/todo/index.php',
     '/todo/show' => '../app/Controllers/todo/index.php',
     '/todo/edit' => '../app/Controllers/todo/index.php',
+    '/calander' => '../app/Controllers/calander/index.php',
+    '/calander/create' => '../app/Controllers/calander/index.php',
+    '/calander/delete' => '../app/Controllers/calander/index.php',
+    '/calander/show' => '../app/Controllers/calander/index.php',
+    '/calander/edit' => '../app/Controllers/calander/index.php',
 ];
