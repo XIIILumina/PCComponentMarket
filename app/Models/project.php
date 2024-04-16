@@ -26,5 +26,13 @@ class projectModel {
         return $quary->fetchAll();
     }
 
+    // Ievietojiet šo kodu jūsu projectModel klasē
+    public function getProjectByID(int $projectID)
+    {
+        $quary = $this->db->dbconn->prepare("SELECT * FROM Projects WHERE ProjectID = ?");
+        $quary->execute([$projectID]);
+        return $quary->fetch(PDO::FETCH_ASSOC);
+    }
+
 
 }

@@ -5,7 +5,7 @@
     <div>
       <a href="/register" class="text-black mx-2 btn inline-block bg-blue-100 font-bold py-2 px-4 rounded transition duration-500 ease-in-out transform hover:bg-blue-500 hover:scale-110">Register</a>
       <a href="/login" class="text-black mx-2 btn inline-block bg-blue-100 font-bold py-2 px-4 rounded transition duration-500 ease-in-out transform hover:bg-blue-500 hover:scale-110">Login</a>
-      <a href="/project" class="text-black mx-2 btn inline-block bg-blue-100 font-bold py-2 px-4 rounded transition duration-500 ease-in-out transform hover:bg-blue-500 hover:scale-110">ToDo</a>
+      <a href="/project" class="text-black mx-2 btn inline-block bg-blue-100 font-bold py-2 px-4 rounded transition duration-500 ease-in-out transform hover:bg-blue-500 hover:scale-110">Project</a>
       <a href="/calander" class="text-black mx-2 btn inline-block bg-blue-100 font-bold py-2 px-4 rounded transition duration-500 ease-in-out transform hover:bg-blue-500 hover:scale-110">calander</a>
       <a href="/userSettings" class="text-black mx-2 btn inline-block bg-blue-100 font-bold py-2 px-4 rounded transition duration-500 ease-in-out transform hover:bg-blue-500 hover:scale-110">User settings</a>
     </div>
