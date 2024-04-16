@@ -10,7 +10,20 @@ if (isset($_SESSION['user'])) {
     if (isset($loggedInUser['Username'])) {
         $username = $loggedInUser['Username'];
         echo "Logged in as: " . htmlspecialchars($username);
+        require_once "../app/Models/project.php";
 
+        if ($_SERVER["REQUEST_METHOD"] == "POST") 
+        {
+
+            $UserID = $_SESSION['user']['UserID'];
+            $Title = $_POST['Title'];
+            $Description = $_POST['Description'];
+
+
+
+            $projectModel = new projectModel;
+            $projectModel->createProject($UserID, $Title, $Description);
+        }
         require_once "../app/Views/project/index.view.php";
     } else {
         echo "Username not found in session";
