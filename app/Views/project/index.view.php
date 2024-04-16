@@ -16,7 +16,7 @@ $projectModel = new projectModel();
         <h1 class="text-3xl font-bold mb-4">My Projects</h1>
 
         <!-- Form for adding new project -->
-        <form method="POST" class="mb-4">
+        <form method="POST" action="/project/create" class="mb-4">
             <div class="flex items-center">
                 <input type="text" name="Title" placeholder="Project Name" class="px-4 py-2 border border-gray-300 mr-2 rounded-lg">
                 <input type="text" name="Description" placeholder="Project Description" class="px-4 py-2 border border-gray-300 mr-2 rounded-lg">

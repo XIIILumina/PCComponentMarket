@@ -23,8 +23,8 @@ if (isset($_SESSION['user'])) {
 
             $projectModel = new projectModel;
             $projectModel->createProject($UserID, $Title, $Description);
+            header("Location: /project");
         }
-        require_once "../app/Views/project/index.view.php";
     } else {
         echo "Username not found in session";
     }
