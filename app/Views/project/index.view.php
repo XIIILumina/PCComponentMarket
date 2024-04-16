@@ -11,7 +11,7 @@ $projectModel = new projectModel();
 <body class="bg-gray-100">
     <div class="h-screen">
         <h1>Hello from projects</h1>
-    </div>
+
     <div class="container mx-auto mt-8">
         <h1 class="text-3xl font-bold mb-4">My Projects</h1>
 
@@ -32,11 +32,14 @@ $projectModel = new projectModel();
                 // Iegūstam visus projektus un tos attēlojam
                 $projects = $projectModel->getAllProjectsByUser($loggedInUser['UserID']);
                 foreach ($projects as $project) {
-                    echo "<li>{$project['Title']} - {$project['Description']}</li>";
+                    echo '<div class="border border-blue-500">';
+                    echo '<li><a href="/project/show?id=' . $project['ProjectID'] . '">' . $project['Title'] . ' - ' . $project['Description'] . '</a></li>';
+                    echo '</div>';
                 }
                 ?>
             </ul>
         </div>
+    </div>
     </div>
 </body>
 
