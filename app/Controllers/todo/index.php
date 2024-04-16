@@ -10,14 +10,13 @@ if (isset($_SESSION['user'])) {
     if (isset($loggedInUser['Username'])) {
         $username = $loggedInUser['Username'];
         echo "Logged in as: " . htmlspecialchars($username);
+
+
         require_once "../app/Views/todo/index.view.php";
     } else {
         echo "Username not found in session";
     }
-}else {
+} else {
     header("Location: /");
 }
-
-
-
-
+?>
