@@ -10,6 +10,7 @@ return [
     '/register' => '../app/Controllers/user/register.php',
     '/logout' => '../app/Controllers/user/logout.php',
     '/lostPassword' => '../app/Controllers/user/lostPassword.php',
+    '/userSettings' => '../app/Controllers/user/userSettings.php',
     '/todo' => '../app/Controllers/todo/index.php',
     '/todo/create' => '../app/Controllers/todo/index.php',
     '/todo/delete' => '../app/Controllers/todo/index.php',
