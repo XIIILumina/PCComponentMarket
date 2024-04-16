@@ -15,7 +15,7 @@ if (isset($_SESSION['user'])) {
         if ($_SERVER["REQUEST_METHOD"] == "POST") 
         {
 
-            $UserID = $_SESSION['user']['UserID'];
+            $UserID = $_SESSION['user']['UserID']; // Pielāgojiet šo atbilstoši jūsu sesijas struktūrai
             $Title = $_POST['Title'];
             $Description = $_POST['Description'];
 

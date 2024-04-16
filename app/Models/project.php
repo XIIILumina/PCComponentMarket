@@ -18,4 +18,13 @@ class projectModel {
         $quary->execute([':UserID' => $UserID, ':Title' => $Title , ':Description' => $Description]);
         return $quary->fetchAll();
     }
+    // Ievietojiet šo kodu jūsu projectModel klasē
+    public function getAllProjectsByUser(int $UserID)
+    {
+        $quary = $this->db->dbconn->prepare("SELECT * FROM Projects WHERE UserID = ?");
+        $quary->execute([$UserID]);
+        return $quary->fetchAll();
+    }
+
+
 }
