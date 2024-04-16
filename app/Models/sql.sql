@@ -24,7 +24,6 @@ CREATE TABLE Projects (
     UserID INT,
     Title VARCHAR(100) NOT NULL,
     Description TEXT,
-    Deadline DATE,
     FOREIGN KEY (UserID) REFERENCES Users(UserID)
 );
 
