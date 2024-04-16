@@ -22,8 +22,8 @@ return [
     '/calander/show' => '../app/Controllers/calander/index.php',
     '/calander/edit' => '../app/Controllers/calander/index.php',
     '/project' => '../app/Controllers/project/index.php',
-    '/project/create' => '../app/Controllers/project/index.php',
-    '/project/delete' => '../app/Controllers/project/index.php',
-    '/project/show' => '../app/Controllers/project/index.php',
-    '/project/edit' => '../app/Controllers/project/index.php',
+    '/project/create' => '../app/Controllers/project/create.php',
+    '/project/delete' => '../app/Controllers/project/delete.php',
+    '/project/show' => '../app/Controllers/project/show.php',
+    '/project/edit' => '../app/Controllers/project/edit.php',
 ];
