@@ -2,9 +2,9 @@
 <?php require_once "../app/Views/Components/navbar.php"; ?>
 <div class="h-screen content-center items-center grid bg-gradient-to-r from-blue-200 from-20% via-gray-100 via%60 to-blue-300 bg-cover bg-no-repeat backdrop-blur-2xl bckdrop-rounded-3xl" >
     <div class="container mx-auto w-4/12  ">    
-        <div class="backdrop-blur-xl bg-white/30  ...">
-        <div class="text-center mb-8"> <!-- Added text-center class for center alignment -->
-            <h1 class="text-3xl mb-4 p-4 font-bold">Login</h1> <!-- Removed mb-4 class -->
+        <div class="backdrop-blur-xl p-4 bg-white/30  ...">
+        <div class="text-center mb-8">
+            <h1 class="text-3xl mb-4 p-4 font-bold">Login</h1>
         </div>
             <form class="max-w-md mx-auto" method="post"?>
                 <div class="mb-4">
@@ -30,10 +30,7 @@
                     }
                 }
             ?>
-            
-            <br><Br>    
         </div>
-
     </div>
 </div>
 
