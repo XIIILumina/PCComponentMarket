@@ -2,7 +2,7 @@
 
 require_once "../app/Core/DBConnect.php";
 
-class todoModel {
+class projectModel {
 
     private $db;
 
