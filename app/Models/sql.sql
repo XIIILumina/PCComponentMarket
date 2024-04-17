@@ -12,7 +12,6 @@ CREATE TABLE Tasks (
     TaskID INT PRIMARY KEY AUTO_INCREMENT,
     UserID INT,
     Title VARCHAR(100) NOT NULL,
-    Description TEXT,
     Deadline DATE,
     Status ENUM('Pabeigts', 'Nepabeigts') DEFAULT 'Nepabeigts',
     FOREIGN KEY (UserID) REFERENCES Users(UserID)
@@ -32,7 +31,6 @@ CREATE TABLE Categories (
     CategoryID INT PRIMARY KEY AUTO_INCREMENT,
     UserID INT,
     Name VARCHAR(100) NOT NULL,
-    Description TEXT,
     FOREIGN KEY (UserID) REFERENCES Users(UserID)
 );
 
