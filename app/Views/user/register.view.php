@@ -1,7 +1,7 @@
 <?php require_once "../app/Views/Components/head.php"; ?>
 <?php require_once "../app/Views/Components/navbar.php"; ?>
-<div class="h-screen">
-    <div class="container mx-auto mt-8">
+<div class="h-screen content-center items-center grid bg-gradient-to-r from-blue-200 from-20% via-gray-100 via%60 to-blue-300 bg-cover bg-no-repeat backdrop-blur-2xl bckdrop-rounded-3xl">
+    <div class=" backdrop-blur-xl p-4 bg-white/30 container mx-auto w-4/12">
         <div class="text-center mb-8">
             <h1 class="text-3xl font-bold">Register</h1>
         </div>
