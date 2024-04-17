@@ -2,7 +2,7 @@
 
 require_once "../app/Core/DBConnect.php";
 
-class tasksModel {
+class taskModel {
     private $db;
 
     public function __construct() {

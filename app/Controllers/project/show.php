@@ -19,6 +19,15 @@ if (isset($_SESSION['user'])) {
             $projectData = $projectModel->getProjectByID($projectID); // Jāpielāgo atbilstoši jūsu modeļiem
 
             if ($projectData) {
+                // Pārsūtam projektu datus uz attiecīgo skatu
+                $title = "Project Name: " . ($projectData['Title'] ?? '');
+                
+                // Iegūstam visus uzdevumus attiecīgajam projektam (pielāgojiet šo kodu savam datu avotam)
+                require_once "../app/Models/task.php";
+                $taskModel = new taskModel();
+                $tasks = $taskModel->getAllTasksByUser($projectID); // Pielāgojiet šo metodi savām vajadzībām
+
+                // Pārsūtam uzdevumu sarakstu uz attiecīgo skatu
                 require_once "../app/Views/project/show.view.php";
             } else {
                 echo "Project not found";
@@ -32,5 +41,4 @@ if (isset($_SESSION['user'])) {
 } else {
     header("Location: /");
 }
-
 ?>

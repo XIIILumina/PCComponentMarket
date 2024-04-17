@@ -69,3 +69,11 @@ CREATE TABLE Reminders (
     FOREIGN KEY (UserID) REFERENCES Users(UserID),
     FOREIGN KEY (TaskID) REFERENCES Tasks(TaskID)
 );
+
+
+
+-- INSERT INTO Tasks (UserID, Title, Deadline, Status)
+-- VALUES 
+--     (2, 'Izstrādāt uzdevumu plānu', '2024-04-30', 'Nepabeigts'),
+--     (1, 'Pabeigt projekta dokumentāciju', '2024-05-15', 'Nepabeigts'),
+--     (1, 'Sagatavot prezentāciju', '2024-05-10', 'Nepabeigts');
