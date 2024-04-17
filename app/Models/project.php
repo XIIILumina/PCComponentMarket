@@ -31,8 +31,21 @@ class projectModel {
     {
         $quary = $this->db->dbconn->prepare("SELECT * FROM Projects WHERE ProjectID = ?");
         $quary->execute([$projectID]);
-        return $quary->fetch(PDO::FETCH_ASSOC);
+        return $quary->fetch();
     }
 
+    public function deleteProjectByid(int $id)
+    {
+        $quary = $this->db->dbconn->prepare("DELETE FROM Projects WHERE ProjectID = id");
+        $quary->execute([':id' => $id]);
+        return $quary->fetch();
+    }
+
+    public function updateProjectByid(int $id, string $Title, string $Description)
+    {
+        $quary = $this->db->dbconn->prepare("UPDATE Projects SET Title = :Title, Description = :Description WHERE ProjectID = id");
+        $quary->execute([':id' => $id , ':Title' => $Title, ':Description' => $Description]);
+        return $quary->fetch();
+    }
 
 }

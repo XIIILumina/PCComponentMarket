@@ -56,7 +56,6 @@ class userModel {
 
     public function userChangePassword(int $UserID , string $newPassword)
     {
-
         $quary = $this->db->dbconn->prepare("UPDATE users SET Password = :newPassword WHERE UserID = :UserID");
         $quary->execute([':UserID' => $UserID, ':newPassword' => $newPassword]);
         return $quary->fetchAll();
