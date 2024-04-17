@@ -23,21 +23,24 @@ $projectModel = new projectModel();
                 <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded-lg">Add Project</button>
             </div>
         </form>
-
         <!-- Display existing projects -->
         <div class="mt-4">
             <h2 class="text-xl font-bold mb-2">Existing Projects:</h2>
-            <ul>
-                <?php
-                // Iegūstam visus projektus un tos attēlojam
-                $projects = $projectModel->getAllProjectsByUser($loggedInUser['UserID']);
-                foreach ($projects as $project) {
-                    echo '<div class="border border-blue-500">';
-                    echo '<li><a href="/project/show?id=' . $project['ProjectID'] . '">' . $project['Title'] . ' - ' . $project['Description'] . '</a></li>';
-                    echo '</div>';
-                }
-                ?>
-            </ul>
+        </div>
+        <?php
+            // Iegūstam visus projektus un tos attēlojam
+            $projects = $projectModel->getAllProjectsByUser($loggedInUser['UserID']);
+            foreach ($projects as $project) {
+                echo '<a href="/project/show?id=' . $project['ProjectID'] . '"><div class="p-4">';
+                echo '<div class="bg-white p-8 rounded-lg shadow-lg relative hover:shadow-2xl transition duration-500">';
+                echo '<h1 class="text-2xl text-gray-800 font-semibold mb-3">' . $project['Title'] . '</h1>';
+                echo '<p class="text-gray-600 leading-6 tracking-normal">' . $project['Description'] . '</p>';
+                echo '</div>';
+                echo '</div></a>';
+            }
+        ?>
+  </div>
+</div>
         </div>
     </div>
     </div>
