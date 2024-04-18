@@ -22,7 +22,7 @@
                             <span class="ml-2 text-sm">(Deadline: <?php echo $task['Deadline']; ?>)</span>
                         </div>
                         <div>
-                            <?php
+                            <?php   
                                 $statusClass = ($task['Status'] === 'Pabeigts') ? 'text-green' : 'text-red';
                             ?>
                             <span class="text-sm <?php echo $statusClass; ?> <?php echo ($task['Status'] === 'Pabeigts') ? 'text-green-500' : 'text-red-600'; ?>">
@@ -37,5 +37,6 @@
         </div>
     </div>
 
-    <?php require_once "../app/Views/Components/footer.php"; ?>
 </body>
+
+    <?php require_once "../app/Views/Components/footer.php"; ?>

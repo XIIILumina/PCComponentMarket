@@ -9,14 +9,33 @@ class taskModel {
         $this->db = new DBConnect();
     }
 
-    public function createTask(int $UserID,int $ProjectID, string $Title, string $Deadline, string $Status)
+    public function createTask(int $UserID, int $ProjectID, string $Title, string $Deadline, string $Status)
     {
+        // Pārbaudam, vai Title satur kādas HTML etiķetes
         $Title = htmlspecialchars($Title);
-        // Assuming Deadline is in the format 'YYYY-MM-DD'
-        $quary = $this->db->dbconn->prepare("INSERT INTO Tasks (UserID, ProjectID, Title, Deadline, Status) VALUES (:UserID,:ProjectID, :Title, :Deadline, :Status)");
-        $quary->execute([':UserID' => $UserID, ':ProjectID' => $ProjectID, ':Title' => $Title , ':Deadline' => $Deadline, ':Status' => $Status]);
-        return $quary->rowCount(); // Return the number of affected rows (1 if successful, 0 if not)
+    
+        // Pārbaudam, vai Deadline ir pareizs datuma formāts, pirms mēģināt to saglabāt datubāzē
+        if (strtotime($Deadline) === false) {
+            // Ja datums ir nepareizs, var izvadīt kļūdas ziņojumu vai apstrādāt kļūdu pēc vajadzības
+            return 0; // 0 nozīmē, ka uzdevums netika saglabāts
+        }
+    
+        // Izveidojam SQL vaicājumu, izmantojot prepared statement, lai novērstu SQL injekcijas
+        $query = $this->db->dbconn->prepare("INSERT INTO Tasks (UserID, ProjectID, Title, Deadline, Status) VALUES (:UserID, :ProjectID, :Title, :Deadline, :Status)");
+    
+        // Izpildam vaicājumu, padodot nepieciešamos parametrus
+        $query->execute([
+            ':UserID' => $UserID,
+            ':ProjectID' => $ProjectID,
+            ':Title' => $Title,
+            ':Deadline' => $Deadline,
+            ':Status' => $Status
+        ]);
+    
+        // Atgriežam ietekmēto rindu skaitu (1, ja saglabāšana veiksmīga, 0, ja neveiksmīga)
+        return $query->rowCount();
     }
+    
 
     public function getAllTasksByUser(int $projectID)
     {
