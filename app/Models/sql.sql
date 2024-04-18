@@ -10,11 +10,11 @@ CREATE TABLE Users (
 -- Uzdevumu tabula
 CREATE TABLE Tasks (
     TaskID INT PRIMARY KEY AUTO_INCREMENT,
-    ProjectsID INT,
+    UserID INT,
+    ProjectID INT,
     Title VARCHAR(100) NOT NULL,
     Deadline DATE,
     Status ENUM('Pabeigts', 'Nepabeigts') DEFAULT 'Nepabeigts',
-    ProjectID INT,
     FOREIGN KEY (UserID) REFERENCES Users(UserID),
     FOREIGN KEY (ProjectID) REFERENCES Projects(ProjectID)
 );

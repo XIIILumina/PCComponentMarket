@@ -9,7 +9,7 @@ if (isset($_SESSION['user'])) {
     // Check if the 'Username' key exists in the user data
     if (isset($loggedInUser['Username'])) {
         $username = $loggedInUser['Username'];
-        echo "Logged in as: " . htmlspecialchars($username);
+        // echo "Logged in as: " . htmlspecialchars($username);
         require_once "../app/Models/project.php";
 
         // Pārbaudam vai ir norādīts projekta ID GET parametrā
@@ -25,7 +25,8 @@ if (isset($_SESSION['user'])) {
                 // Iegūstam visus uzdevumus attiecīgajam projektam (pielāgojiet šo kodu savam datu avotam)
                 require_once "../app/Models/task.php";
                 $taskModel = new taskModel();
-                $tasks = $taskModel->getAllTasksByUser($projectID); // Pielāgojiet šo metodi savām vajadzībām
+                $tasks = $taskModel->getAllTasksByProject($projectID);
+                 // Pielāgojiet šo metodi savām vajadzībām
 
                 // Pārsūtam uzdevumu sarakstu uz attiecīgo skatu
                 require_once "../app/Views/project/show.view.php";
@@ -41,4 +42,5 @@ if (isset($_SESSION['user'])) {
 } else {
     header("Location: /");
 }
+
 ?>
