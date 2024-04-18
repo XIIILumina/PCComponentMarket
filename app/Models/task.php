@@ -9,12 +9,12 @@ class taskModel {
         $this->db = new DBConnect();
     }
 
-    public function createTask(int $UserID, string $Title, string $Deadline, string $Status)
+    public function createTask(int $UserID,int $ProjectID, string $Title, string $Deadline, string $Status)
     {
         $Title = htmlspecialchars($Title);
         // Assuming Deadline is in the format 'YYYY-MM-DD'
-        $quary = $this->db->dbconn->prepare("INSERT INTO Tasks (UserID, Title, Deadline, Status) VALUES (:UserID, :Title, :Deadline, :Status)");
-        $quary->execute([':UserID' => $UserID, ':Title' => $Title , ':Deadline' => $Deadline, ':Status' => $Status]);
+        $quary = $this->db->dbconn->prepare("INSERT INTO Tasks (UserID, ProjectID, Title, Deadline, Status) VALUES (:UserID,:ProjectID, :Title, :Deadline, :Status)");
+        $quary->execute([':UserID' => $UserID, ':ProjectID' => $ProjectID, ':Title' => $Title , ':Deadline' => $Deadline, ':Status' => $Status]);
         return $quary->rowCount(); // Return the number of affected rows (1 if successful, 0 if not)
     }
 

@@ -2,6 +2,7 @@
 $title = "task";
 
 require_once "../app/Core/Session.php";
+require_once "../app/Models/task.php";
 
 if (isset($_SESSION['user'])) {
     $loggedInUser = $_SESSION['user'];
@@ -20,16 +21,6 @@ if (isset($_SESSION['user'])) {
     header("Location: /");
 }
 
-
-
-
-
-// Iegūstam visus uzdevumus no datubāzes, izmantojot tasksModel
-require_once "../app/Models/task.php";
-$tasksModel = new taskModel();
-$tasks = $tasksModel->getAllTasksByUser($loggedInUser['UserID']);
-
-// Iekļaujam skatu (view)
 require_once "../app/Views/task/index.view.php";
 ?>
 
