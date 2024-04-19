@@ -8,7 +8,7 @@ if (isset($_SESSION['user'])) {
     // Check if the 'Username' key exists in the user data
     if (isset($loggedInUser['Username'])) {
         $username = $loggedInUser['Username'];
-        echo "Logged in as: " . htmlspecialchars($username);
+        // echo "Logged in as: " . htmlspecialchars($username);
         require_once "../app/Models/project.php";
         
         require_once "../app/Views/project/index.view.php";

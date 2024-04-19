@@ -70,5 +70,19 @@ class taskModel {
         $query->execute([$projectID]);
         return $query->fetchAll();
     }
+    public function getUsernameById($userID) {
+        $query = $this->db->dbconn->prepare("SELECT Username FROM Users WHERE UserID = ?");
+        $query->execute([$userID]);
+        $result = $query->fetch(PDO::FETCH_ASSOC);
+        return ($result) ? $result['Username'] : null;
+    }
+
+    public function getAllProjects()
+    {
+        $query = $this->db->dbconn->prepare("SELECT * FROM Projects"); // Iepriekš pieņemot, ka jums ir Projects tabula
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 
 }

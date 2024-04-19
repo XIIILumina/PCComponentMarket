@@ -34,12 +34,20 @@ class projectModel {
         return $quary->fetch();
     }
 
-    public function deleteProjectByid(int $id)
+    public function deleteProjectByID($projectID)
     {
-        $quary = $this->db->dbconn->prepare("DELETE FROM Projects WHERE ProjectID = id");
-        $quary->execute([':id' => $id]);
-        return $quary->fetch();
+        // Dzēšam visus uzdevumus, kas saistīti ar šo projektu
+        $queryTasks = $this->db->dbconn->prepare("DELETE FROM Tasks WHERE ProjectID = :ProjectID");
+        $queryTasks->execute([':ProjectID' => $projectID]);
+    
+        // Dzēšam pašu projektu
+        $queryProject = $this->db->dbconn->prepare("DELETE FROM Projects WHERE ProjectID = :ProjectID");
+        $queryProject->execute([':ProjectID' => $projectID]);
+    
+        return $queryProject->rowCount(); // Return the number of affected rows (1 if successful, 0 if not)
     }
+    
+    
 
     public function updateProjectByid(int $id, string $Title, string $Description)
     {
