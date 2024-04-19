@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['title'], $_POST['deadl
         $userID = $_SESSION['user']['UserID'];
         $projectID = null;
         if (isset($_POST['project_id'])) {
-            $projectID = $_POST['project_id'];
+            $projectID = strval($_POST['project_id']);
         }
         // Pārbaude, vai projekta ID ir iegūts
         if ($projectID === null) {
@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['title'], $_POST['deadl
         // Pārbaudam, vai uzdevums tika veiksmīgi saglabāts
         if ($result) {
             // Veiksmīga saglabāšanas ziņojums vai pāradresācija uz citu lapu
-            echo "<p>Task created successfully!</p>";
+            header("Location: /project/show?id=" . $projectID);
             // Ja nepieciešams, varat izmantot header, lai pāradresētu uz citu lapu
             // header("Location: /success.php");
         } else {
