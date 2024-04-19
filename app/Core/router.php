@@ -1,6 +1,6 @@
 <?php
 
-$url = parse_url($_SERVER['REQUEST_URI'])["path"];
+$url = parse_url($_SERVER['REQUEST_URI'])["path"]  ?? '/';
 
 $routes = require "../app/routes.php";
 
