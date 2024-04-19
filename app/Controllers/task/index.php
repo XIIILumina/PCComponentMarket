@@ -1,7 +1,6 @@
 <?php
 $title = "task";
 
-require_once "../app/Core/Session.php";
 require_once "../app/Models/task.php";
 
 if (isset($_SESSION['user'])) {

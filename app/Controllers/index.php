@@ -1,5 +1,4 @@
 <?php
-require_once "../app/Core/Session.php";
 
 $title = "index";
 

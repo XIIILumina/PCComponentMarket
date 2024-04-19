@@ -1,5 +1,4 @@
 <?php
-session_start();
 require "../app/Models/user.php";
 require "../app/Core/Validator.php";
 

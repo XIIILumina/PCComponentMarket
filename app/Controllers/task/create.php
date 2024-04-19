@@ -10,7 +10,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['title'], $_POST['deadl
     $taskModel = new taskModel();
     
     // Pārbaudam sesiju un iegūstam lietotāja ID
-    session_start();
     if (isset($_SESSION['user']['UserID'])) {
         $userID = $_SESSION['user']['UserID'];
         $projectID = null;

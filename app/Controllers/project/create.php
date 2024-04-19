@@ -1,7 +1,6 @@
 <?php
 $title = "Project/Create";
 
-require_once "../app/Core/Session.php";
 
 if (isset($_SESSION['user'])) {
     $loggedInUser = $_SESSION['user'];
