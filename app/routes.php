@@ -13,7 +13,7 @@ return [
     '/userSettings' => '../app/Controllers/user/userSettings.php',
     '/task' => '../app/Controllers/task/index.php',
     '/task/create' => '../app/Controllers/task/create.php',
-    '/task/delete' => '../app/Controllers/task/index.php',
+    '/task/delete' => '../app/Controllers/task/delete.php',
     '/task/show' => '../app/Controllers/task/index.php',
     '/task/edit' => '../app/Controllers/task/index.php',
     '/calander' => '../app/Controllers/calander/index.php',

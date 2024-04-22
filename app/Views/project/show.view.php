@@ -38,6 +38,11 @@
                                 <td class="pb-2"><?php echo htmlspecialchars($task['Deadline']); ?></td>
                                 <td class="pb-2">
                                     <a href="/task/edit?id=<?php echo $task['TaskID']; ?>" class="rounded-md bg-blue-500 px-2 py-1 font-bold text-white hover:bg-blue-700">Edit</a>
+                                    <form method="POST" action="/task/delete" class="inline-block">
+                                        <input type="hidden" name="taskID" value="<?php echo $task['TaskID']; ?>">
+                                        <input type="hidden" name="projectID" value="<?php echo $projectID; ?>">
+                                        <button class="rounded-md bg-red-500 px-2 py-1 font-bold text-white hover:bg-red-700">Delete</button>
+                                    </form>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
