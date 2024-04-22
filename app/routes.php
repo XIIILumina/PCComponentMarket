@@ -25,5 +25,6 @@ return [
     '/project/create' => '../app/Controllers/project/create.php',
     '/project/delete' => '../app/Controllers/project/delete.php',
     '/project/show' => '../app/Controllers/project/show.php',
+    '/project/search' => '../app/Controllers/project/search.php',
     '/project/edit' => '../app/Controllers/project/edit.php',
 ];

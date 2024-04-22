@@ -1,6 +1,5 @@
 <?php
-$title = "Procjcects";
-
+$title = "Projects";
 
 if (isset($_SESSION['user'])) {
     $loggedInUser = $_SESSION['user'];
@@ -9,7 +8,17 @@ if (isset($_SESSION['user'])) {
     if (isset($loggedInUser['Username'])) {
         $username = $loggedInUser['Username'];
         // echo "Logged in as: " . htmlspecialchars($username);
+        require_once "../app/Core/DBConnect.php";
         require_once "../app/Models/project.php";
+        $projectModel = new projectModel();
+        $db = new DBConnect();
+        $projects = $projectModel->getAllProjectsByUser($loggedInUser['UserID']);
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['searchInput'])) {
+            $searchValue = $_POST['searchInput'];
+            $searchResults = $projectModel->searchProjectsByName($loggedInUser['UserID'], $searchValue);
+        }
+
+
         
         require_once "../app/Views/project/index.view.php";
     } else {

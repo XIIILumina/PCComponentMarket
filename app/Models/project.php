@@ -55,5 +55,12 @@ class projectModel {
         $quary->execute([':id' => $id , ':Title' => $Title, ':Description' => $Description]);
         return $quary->fetch();
     }
+    public function searchProjectsByName(int $UserID, string $searchQuery)
+    {
+        $searchQuery = htmlspecialchars($searchQuery);
+        $query = $this->db->dbconn->prepare("SELECT * FROM Projects WHERE UserID = :UserID AND Title LIKE :searchQuery");
+        $query->execute([':UserID' => $UserID, ':searchQuery' => "%$searchQuery%"]);
+        return $query->fetchAll();
+    }
 
 }
