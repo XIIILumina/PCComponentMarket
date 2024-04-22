@@ -1,6 +1,6 @@
 <?php
 require "../app/Models/user.php";
-require "../app/Core/Validator.php";
+
 
 $errors = [];
 

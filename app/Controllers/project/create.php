@@ -2,7 +2,6 @@
 $title = "Project/Create";
 
 require_once "../app/Models/project.php";
-require_once "../app/Core/Validator.php";
 
 $errors = [];
 

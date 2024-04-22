@@ -1,6 +1,6 @@
 <?php
 require "../app/Models/user.php";
-require "../app/Core/Validator.php";
+
 
 if (!isset($_SESSION['user']['Username'])) {
     header("Location: /login");
