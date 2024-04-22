@@ -54,10 +54,42 @@ class userModel {
         return false;   
     }
 
-    public function userChangePassword(int $UserID , string $newPassword)
+    public function userChangePassword(int $UserID ,string $username,string $oldPassword, string $newPassword)
     {
-        $quary = $this->db->dbconn->prepare("UPDATE users SET Password = :newPassword WHERE UserID = :UserID");
-        $quary->execute([':UserID' => $UserID, ':newPassword' => $newPassword]);
+        $quary = $this->db->dbconn->prepare("SELECT * FROM users WHERE username = :username");
+        $quary->execute([':username' => $username]);
+        $user = $quary->fetch();
+
+        if($user && password_verify($oldPassword , $user['Password']))
+        {
+            $newPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+            $quary = $this->db->dbconn->prepare("UPDATE users SET Password = :newPassword WHERE UserID = :UserID");
+            $quary->execute([':UserID' => $UserID, ':newPassword' => $newPassword]);
+            return true;
+        }
+        
+        return false;   
+    }
+
+    public function userChangeEmail(int $UserID , string $newEmail)
+    {
+        $quary = $this->db->dbconn->prepare("UPDATE users SET Email = :newEmail WHERE UserID = :UserID");
+        $quary->execute([':UserID' => $UserID, ':newEmail' => $newEmail]);
         return $quary->fetchAll();
+    }
+
+    public function deleteUser(int $UserID , string $username , string $password)
+    {
+
+        $quary = $this->db->dbconn->prepare("SELECT * FROM users WHERE username = :username");
+        $quary->execute([':username' => $username]);
+        $user = $quary->fetch();
+        if($user && password_verify($password , $user['Password'])){
+            $quary = $this->db->dbconn->prepare("DELETE FROM users WHERE UserID = :UserID");
+            $quary->execute([':UserID' => $UserID]);
+            return $quary->fetchAll();
+        }
+        return false;   
+
     }
 }
