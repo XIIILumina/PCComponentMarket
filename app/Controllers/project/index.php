@@ -12,13 +12,13 @@ if (isset($_SESSION['user'])) {
         require_once "../app/Models/project.php";
         $projectModel = new projectModel();
         $db = new DBConnect();
-        $projects = $projectModel->getAllProjectsByUser($loggedInUser['UserID']);
+        
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['searchInput'])) {
             $searchValue = $_POST['searchInput'];
-            $searchResults = $projectModel->searchProjectsByName($loggedInUser['UserID'], $searchValue);
+            $projects = $projectModel->searchProjectsByName($loggedInUser['UserID'], $searchValue);
+        }else{
+            $projects = $projectModel->getAllProjectsByUser($loggedInUser['UserID']);
         }
-
-
         
         require_once "../app/Views/project/index.view.php";
     } else {
