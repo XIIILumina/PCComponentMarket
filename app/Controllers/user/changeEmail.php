@@ -13,17 +13,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $errors[] = 'Not all the info was provided';
     }else{
 
-    
-        if(!Validator::Email($_POST["newEmail"])) {
+        $email = trim($_POST["newEmail"]);
+
+        if(!Validator::Email($email)) {
             $errors[] = 'Not Valid Email';
+        }
+
+        if(!Validator::Number($_POST["userID"])) {
+            $errors[] = 'Not Valid userID';
         }
     
         if(empty($error)) {
-            $userModel->userChangeEmail($_POST["userID"], $_POST["newEmail"]);
+            $userModel->userChangeEmail($_POST["userID"], $email);
             header("Location: /logout");
             die();
         }
-        dd($errors);
 
     }
 

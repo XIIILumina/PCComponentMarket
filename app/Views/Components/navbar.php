@@ -3,10 +3,10 @@
     <a href="/"><img src="../../public/images/Logo.png" alt="Logo" class="  rounded-l transition duration-500 ease-in-out transform hover:bg-blue-400 hover:scale-110 h-14 w-auto inline-block "></a>
     </div>
     <div>
-      <a href="/register" class="text-black mx-2 btn inline-block bg-blue-100 font-bold py-2 px-4 rounded transition duration-500 ease-in-out transform hover:bg-blue-500 hover:scale-110">Register</a>
-      <a href="/login" class="text-black mx-2 btn inline-block bg-blue-100 font-bold py-2 px-4 rounded transition duration-500 ease-in-out transform hover:bg-blue-500 hover:scale-110">Login</a>
+      <a href="/user/register" class="text-black mx-2 btn inline-block bg-blue-100 font-bold py-2 px-4 rounded transition duration-500 ease-in-out transform hover:bg-blue-500 hover:scale-110">Register</a>
+      <a href="/user/login" class="text-black mx-2 btn inline-block bg-blue-100 font-bold py-2 px-4 rounded transition duration-500 ease-in-out transform hover:bg-blue-500 hover:scale-110">Login</a>
       <a href="/project" class="text-black mx-2 btn inline-block bg-blue-100 font-bold py-2 px-4 rounded transition duration-500 ease-in-out transform hover:bg-blue-500 hover:scale-110">Projects</a>
       <a href="/calander" class="text-black mx-2 btn inline-block bg-blue-100 font-bold py-2 px-4 rounded transition duration-500 ease-in-out transform hover:bg-blue-500 hover:scale-110">Calander</a>
-      <a href="/userSettings" class="text-black mx-2 btn inline-block bg-blue-100 font-bold py-2 px-4 rounded transition duration-500 ease-in-out transform hover:bg-blue-500 hover:scale-110">User settings</a>
+      <a href="/user/userSettings" class="text-black mx-2 btn inline-block bg-blue-100 font-bold py-2 px-4 rounded transition duration-500 ease-in-out transform hover:bg-blue-500 hover:scale-110">User settings</a>
     </div>
-  </nav>
+</nav>
