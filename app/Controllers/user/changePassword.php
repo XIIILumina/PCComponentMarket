@@ -26,7 +26,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     
         if(empty($error)) {
-            $userModel->deleteUser($_POST["userID"], $_POST["username"], $_POST["userPassword"]);
+            $userModel->userChangePassword($_POST["userID"], $_POST["username"], $_POST["oldPassword"],$_POST["newPassword"]);
             header("Location: /logout");
             die();
         }

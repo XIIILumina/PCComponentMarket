@@ -11,20 +11,23 @@
     </from>
 
     <from action="/user/changePassword" method="POST">
+        <input type="hidden" id="userID" name="userID" value="<?= $_SESSION['user']['UserID'] ?? '' ?> ">
+        <input type="hidden" id="username" name="username" value="<?= $_SESSION['user']['Username'] ?? '' ?>">
         <input type="oldPassword" name="oldPassword" placeholder="old Password" class="p-1 border border-blue-500 rounded-lg" required>
         <input type="password" name="newPassword" placeholder="New password" class="p-1 border border-blue-500 rounded-lg" required>
         <button type="submit" class="bg-blue-500 text-white p-1 border border-blue-500 rounded-lg">Change Password</button>
     </from>
 
     <from action="/user/changeEmail" method="POST">
-        <input type="email" name="newEmail" placeholder="New Email" class="p-1 border border-blue-500 rounded-lg" required>
+        <input type="hidden" id="userID" name="userID" value="<?= $_SESSION['user']['UserID'] ?? '' ?> ">
+        <input type="email" id="newEmail" name="newEmail" placeholder="New Email" class="p-1 border border-blue-500 rounded-lg" required>
         <button type="submit" class="bg-blue-500 text-white p-1 border border-blue-500 rounded-lg">Change Email</button>
     </from>
 
     <form action="/user/delete" method="POST">
-        <input type="hidden" id="userID" name="userID" value="<?= $_SESSION['user']['UserID'] ?? '' ?>">
+        <input type="hidden" id="userID" name="userID" value="<?= $_SESSION['user']['UserID'] ?? '' ?> ">
         <input type="hidden" id="username" name="username" value="<?= $_SESSION['user']['Username'] ?? '' ?>">
-        <input type="hidden" id="userPassword" name="userPassword" value="<?= $_SESSION['user']['Password'] ?? '' ?>">
+        <input type="password" id="userPassword" name="userPassword" placeholder="Your password" class="p-1 border border-blue-500 rounded-lg">
         <button type="submit" class="bg-red-500 text-white p-1 border-red-500 rounded-lg">Delete Account</button>
     </form>
 

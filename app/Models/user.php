@@ -77,7 +77,7 @@ class userModel {
         $quary->execute([':UserID' => $UserID, ':newEmail' => $newEmail]);
         return $quary->fetchAll();
     }
-
+    
     public function deleteUser(int $UserID , string $username , string $password)
     {
 
@@ -85,9 +85,16 @@ class userModel {
         $quary->execute([':username' => $username]);
         $user = $quary->fetch();
         if($user && password_verify($password , $user['Password'])){
+
+            $quary = $this->db->dbconn->prepare("DELETE FROM tasks WHERE UserID = :UserID");
+            $quary->execute([':UserID' => $UserID]);
+
+            $quary = $this->db->dbconn->prepare("DELETE FROM projects WHERE UserID = :UserID");
+            $quary->execute([':UserID' => $UserID]);
+
             $quary = $this->db->dbconn->prepare("DELETE FROM users WHERE UserID = :UserID");
             $quary->execute([':UserID' => $UserID]);
-            return $quary->fetchAll();
+            return true;
         }
         return false;   
 
