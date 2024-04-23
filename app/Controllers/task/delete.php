@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
     }else{
-        header("Location: /login");
+        header("Location: /user/login");
     }
     
 } else {

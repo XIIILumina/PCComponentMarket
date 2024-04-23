@@ -1,12 +1,13 @@
 <?php
+require "../app/Models/user.php";
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-    require "../app/Models/user.php";
+
     $userModel = new userModel;
     $errors = [];
 
     if(!isset($_SESSION["user"])) {
-        header("Location: /login");
+        header("Location: /user/login");
     }
 
     if(!isset($_POST["userID"]) || !isset($_POST["newEmail"])) {
@@ -25,7 +26,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     
         if(empty($error)) {
             $userModel->userChangeEmail($_POST["userID"], $email);
-            header("Location: /logout");
+            header("Location: /user/logout");
             die();
         }
 

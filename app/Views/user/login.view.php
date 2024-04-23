@@ -16,12 +16,12 @@
                 <div class="mb-4 ">
                     <label for="password" class="block text-sm font-semibold mb-2">Password:</label>
                     <input type="password" value="<?= $_POST["password"] ?? null?>" id="password" name="password" required class="w-full px-4 py-2 border border-black rounded-md focus:outline-none focus:border-blue-500">
-                    <a href="/lostPassword"><p class="text-blue-500 decoration-underline text-right ms-20">Forgot your password?</p></a>
+                    <a href="/user/lostPassword"><p class="text-blue-500 decoration-underline text-right ms-20">Forgot your password?</p></a>
                     <!-- Added border class -->
                 </div>
 
                 <button type="submit" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline">Login</button>
-                <a href="/register"><p class="text-blue-500 decoration-underline text-left ">Dont have an account?</p></a> 
+                <a href="/user/register"><p class="text-blue-500 decoration-underline text-left ">Dont have an account?</p></a> 
             </form>
             <?php
                 if (isset($errors) && $errors != []) {

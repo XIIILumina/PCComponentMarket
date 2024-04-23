@@ -1,6 +1,6 @@
 <?php
 if (!isset($_SESSION['user']['Username'])) {
-    header("Location: /login");
+    header("Location: /user/login");
 }
 
 $title = "Calander";

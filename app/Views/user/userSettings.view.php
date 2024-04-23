@@ -6,28 +6,28 @@
     <p class="text-black text-2xl">Username: <?= $_SESSION['user']['Username'] ?? '' ?></p>
     <p class="text-black text-2xl">User email: <?= $_SESSION['user']['Email'] ?? '' ?></p>
 
-    <from>
-        <a href="/logout"><button class="bg-blue-500 p-1 border border-blue-500 rounded-lg">Logout</button></a>
-    </from>
+    <form>
+        <a href="/user/logout"><button class="bg-blue-500 p-1 border border-blue-500 rounded-lg">Logout</button></a>
+    </form>
 
-    <from action="/user/changePassword" method="POST">
+    <form action="/user/changePassword" method="POST">
         <input type="hidden" id="userID" name="userID" value="<?= $_SESSION['user']['UserID'] ?? '' ?> ">
         <input type="hidden" id="username" name="username" value="<?= $_SESSION['user']['Username'] ?? '' ?>">
-        <input type="oldPassword" name="oldPassword" placeholder="old Password" class="p-1 border border-blue-500 rounded-lg" required>
-        <input type="password" name="newPassword" placeholder="New password" class="p-1 border border-blue-500 rounded-lg" required>
+        <input type="password" name="oldPassword" placeholder="old Password" class="p-1 border border-blue-500 rounded-lg text-black" required>
+        <input type="password" name="newPassword" placeholder="New password" class="p-1 border border-blue-500 rounded-lg text-black" required>
         <button type="submit" class="bg-blue-500 text-white p-1 border border-blue-500 rounded-lg">Change Password</button>
-    </from>
+    </form>
 
-    <from action="/user/changeEmail" method="POST">
+    <form action="/user/changeEmail" method="POST">
         <input type="hidden" id="userID" name="userID" value="<?= $_SESSION['user']['UserID'] ?? '' ?> ">
-        <input type="email" id="newEmail" name="newEmail" placeholder="New Email" class="p-1 border border-blue-500 rounded-lg" required>
+        <input type="email" id="newEmail" name="newEmail" placeholder="New Email" class="p-1 border border-blue-500 rounded-lg text-black" required>
         <button type="submit" class="bg-blue-500 text-white p-1 border border-blue-500 rounded-lg">Change Email</button>
-    </from>
+    </form>
 
     <form action="/user/delete" method="POST">
         <input type="hidden" id="userID" name="userID" value="<?= $_SESSION['user']['UserID'] ?? '' ?> ">
         <input type="hidden" id="username" name="username" value="<?= $_SESSION['user']['Username'] ?? '' ?>">
-        <input type="password" id="userPassword" name="userPassword" placeholder="Your password" class="p-1 border border-blue-500 rounded-lg">
+        <input type="password" id="userPassword" name="userPassword" placeholder="Your password" class="p-1 border border-blue-500 rounded-lg text-black" required>
         <button type="submit" class="bg-red-500 text-white p-1 border-red-500 rounded-lg">Delete Account</button>
     </form>
 

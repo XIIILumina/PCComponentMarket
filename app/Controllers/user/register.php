@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $password = password_hash($password, PASSWORD_DEFAULT);
 
         $return = $usermodel->createUser($email, $password, $username);
-        header("Location: /login");
+        header("Location: /user/login");
     }
 
 }

@@ -1,12 +1,13 @@
 <?php
+require "../app/Models/user.php";
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-    require "../app/Models/user.php";
+    
     $userModel = new userModel;
     $errors = [];
 
     if(!isset($_SESSION["user"])) {
-        header("Location: /login");
+        header("Location: /user/login");
     }
 
     if(!isset($_POST["userID"]) || !isset($_POST["username"]) || !isset($_POST["userPassword"])) {
@@ -27,7 +28,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     
         if(empty($error)) {
             $userModel->deleteUser($_POST["userID"], $_POST["username"], $_POST["userPassword"]);
-            header("Location: /logout");
+            header("Location: /user/logout");
             die();
         }
 
