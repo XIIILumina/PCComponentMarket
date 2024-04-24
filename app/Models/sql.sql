@@ -72,7 +72,13 @@ CREATE TABLE Reminders (
     FOREIGN KEY (TaskID) REFERENCES Tasks(TaskID)
 );
 
-
+CREATE TABLE SheredProjects (
+    SheredProjectsID INT PRIMARY KEY AUTO_INCREMENT,
+    UserID INT,
+    ProjectID INT,
+    FOREIGN KEY (UserID) REFERENCES Users(UserID),
+    FOREIGN KEY (ProjectID) REFERENCES Projects(ProjectID)
+);
 
 -- INSERT INTO Tasks (UserID, Title, Deadline, Status)
 -- VALUES 

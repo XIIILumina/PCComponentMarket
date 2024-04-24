@@ -50,19 +50,19 @@ require_once "../app/Views/Components/navbar.php";
                     echo '<h1 class="text-2xl text-gray-800 font-semibold mb-3">' . $project['Title'] . '</h1>';
                     echo '<p class="text-gray-600 leading-6 tracking-normal">' . $project['Description'] . '</p>';
                     
-                    // Pogas tiek pārkārtotas tā, lai katras pogas bloks būtu viens pēc otra
-                    echo '<div class="flex justify-end mt-4">';
-                    echo '<form method="POST" action="/project/delete" class="mr-2">';
+                    // Pogas tiek pārkārtotas tā, lai katras pogas bloks būtu viens pēc otra vertikāli labajā augšējā stūrī
+                    echo '<div class="flex flex-col-reverse items-end">';
+                    echo '<form method="POST" action="/project/delete" class="mb-2">';
                     echo '<input type="hidden" name="project_id" value="' . $project['ProjectID'] . '">';
                     echo '<button type="submit" class="text-red-600 hover:text-red-900 font-bold bg-transparent border-none">Delete</button>';
                     echo '</form>';
                     
-                    echo '<form method="POST" action="/project/addUser" class="mr-2">';
+                    echo '<form method="POST" action="/project/addUser" class="mb-2">';
                     echo '<input type="hidden" name="project_id" value="' . $project['ProjectID'] . '">';
                     echo '<button type="submit" class="text-red-600 hover:text-red-900 font-bold bg-transparent border-none">Add User</button>';
                     echo '</form>';
                     
-                    echo '<form method="POST" action="/project/edit" class="mr-2">';
+                    echo '<form method="POST" action="/project/edit" class="mb-2">';
                     echo '<input type="hidden" name="project_id" value="' . $project['ProjectID'] . '">';
                     echo '<button type="submit" class="text-red-600 hover:text-red-900 font-bold bg-transparent border-none">Edit</button>';
                     echo '</form>';
@@ -75,6 +75,9 @@ require_once "../app/Views/Components/navbar.php";
             } else {
                 echo '<h2>No projects found</h2>';
             }
+            
+            
+            
             
             ?>
         </div>
