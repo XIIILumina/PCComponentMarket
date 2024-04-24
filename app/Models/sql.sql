@@ -1,10 +1,20 @@
 CREATE DATABASE fancytodo;
+use fancytodo;
 -- sita kroc bus log in tabula, jeb lietotaju tabula !!!!
 CREATE TABLE Users (
     UserID INT PRIMARY KEY AUTO_INCREMENT,
     Username VARCHAR(50) UNIQUE NOT NULL,
     Password VARCHAR(100) NOT NULL,
     Email VARCHAR(100) UNIQUE NOT NULL
+);
+
+-- Projektu tabula
+CREATE TABLE Projects (
+    ProjectID INT PRIMARY KEY AUTO_INCREMENT,
+    UserID INT,
+    Title VARCHAR(100) NOT NULL,
+    Description TEXT,
+    FOREIGN KEY (UserID) REFERENCES Users(UserID)
 );
 
 -- Uzdevumu tabula
@@ -17,15 +27,6 @@ CREATE TABLE Tasks (
     Status ENUM('Pabeigts', 'Nepabeigts') DEFAULT 'Nepabeigts',
     FOREIGN KEY (UserID) REFERENCES Users(UserID),
     FOREIGN KEY (ProjectID) REFERENCES Projects(ProjectID)
-);
-
--- Projektu tabula
-CREATE TABLE Projects (
-    ProjectID INT PRIMARY KEY AUTO_INCREMENT,
-    UserID INT,
-    Title VARCHAR(100) NOT NULL,
-    Description TEXT,
-    FOREIGN KEY (UserID) REFERENCES Users(UserID)
 );
 
 -- Kategoriju tabula (papildu funkcionalitāte)
