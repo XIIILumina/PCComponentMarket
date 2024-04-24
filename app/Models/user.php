@@ -71,6 +71,14 @@ class userModel {
         return false;   
     }
 
+    public function userLostPassword(int $UserID ,string $newPassword)
+    {
+        $newPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+        $quary = $this->db->dbconn->prepare("UPDATE users SET Password = :newPassword WHERE UserID = :UserID");
+        $quary->execute([':UserID' => $UserID, ':newPassword' => $newPassword]);
+        $quary->fetch();
+    }
+
     public function userChangeEmail(int $UserID , string $newEmail)
     {
         $quary = $this->db->dbconn->prepare("UPDATE users SET Email = :newEmail WHERE UserID = :UserID");
