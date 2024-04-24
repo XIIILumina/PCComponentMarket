@@ -16,7 +16,13 @@ class projectModel {
         $Description = htmlspecialchars($Description);
         $quary = $this->db->dbconn->prepare("INSERT INTO Projects (UserID, Title, Description) VALUES (:UserID,:Title,:Description)");
         $quary->execute([':UserID' => $UserID, ':Title' => $Title , ':Description' => $Description]);
-        return $quary->fetchAll();
+        $quary->fetch();
+
+        $ProjectID = $this->getProjectIdByNameAndDescriptione($Title, $Description);
+
+        $quary = $this->db->dbconn->prepare("INSERT INTO SheredProjects (UserID, ProjectID) VALUES (:UserID,:ProjectID)");
+        $quary->execute([':UserID' => $UserID, ':ProjectID' => $ProjectID]);
+        return $quary->fetch();
     }
     // Ievietojiet šo kodu jūsu projectModel klasē
     public function getAllProjectsByUser(int $UserID)
@@ -55,12 +61,20 @@ class projectModel {
         $quary->execute([':id' => $id , ':Title' => $Title, ':Description' => $Description]);
         return $quary->fetch();
     }
+    
     public function searchProjectsByName(int $UserID, string $searchQuery)
     {
         $searchQuery = htmlspecialchars($searchQuery);
         $query = $this->db->dbconn->prepare("SELECT * FROM Projects WHERE UserID = :UserID AND Title LIKE :searchQuery");
         $query->execute([':UserID' => $UserID, ':searchQuery' => "%$searchQuery%"]);
         return $query->fetchAll();
+    }
+
+    public function getProjectIdByNameAndDescriptione(string $Title,string $Description)
+    {
+        $query = $this->db->dbconn->prepare("SELECT * FROM Projects WHERE Title = :Title AND Description = :Description");
+        $query->execute([':Title' => $Title, ':Description' => $Description]);
+        return $query->fetch();
     }
 
 }

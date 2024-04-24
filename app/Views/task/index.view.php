@@ -21,11 +21,7 @@
             </select>
 
             <!-- Projekta izvēle -->
-            <select name="project_id" class="border border-gray-300 px-4 py-2 mb-2 md:mr-2 md:mb-0 rounded-lg focus:outline-none focus:border-blue-500">
-                <?php foreach ($projects as $project): ?>
-                    <option value="<?php echo $project['ProjectID']; ?>"><?php echo htmlspecialchars($project['Title']); ?></option>
-                <?php endforeach; ?>
-            </select>
+            <input type="hidden" name="project_id" id="project_id" value="<?= $_GET['id']; ?>">
 
             <!-- Poga - Izveidot uzdevumu -->
             <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Create Task</button>

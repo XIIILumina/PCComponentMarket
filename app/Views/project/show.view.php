@@ -7,7 +7,7 @@
         <div class="container mx-auto mt-8">
             <div class="mx-auto max-w-4xl rounded-lg bg-white p-6 shadow-lg md:max-w-screen-lg">
                 <h1 class="text-3xl font-bold">FancyToDo Project</h1>
-                <a href="/task" class="text-blue-500 ml-4">
+                <a href="/task?id=<?php echo $_GET['id']; ?>" class="text-blue-500 ml-4">
                     <i class="fas fa-plus-circle"></i> Add Task
                 </a>
             </div>
