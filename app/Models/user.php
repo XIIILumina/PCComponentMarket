@@ -99,4 +99,21 @@ class userModel {
         return false;   
 
     }
+
+    public function getAllUsers()
+    {
+
+        $quary = $this->db->dbconn->prepare("SELECT * FROM Users");
+        $quary->execute();
+        return $quary->fetchAll();
+    }
+
+    public function searchUsers($searchValue)
+{
+    $query = $this->db->dbconn->prepare("SELECT * FROM Users WHERE Username LIKE ?");
+    $searchPattern = "%$searchValue%";
+    $query->execute([$searchPattern]);
+    return $query->fetchAll();
+}
+
 }
