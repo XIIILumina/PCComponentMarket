@@ -5,11 +5,10 @@
     <h1 class="text-black text-3xl">User Settings</h1>
     <p class="text-black text-2xl">Username: <?= $_SESSION['user']['Username'] ?? '' ?></p>
     <p class="text-black text-2xl">User email: <?= $_SESSION['user']['Email'] ?? '' ?></p>
-
-    <form>
+    <div>
         <a href="/user/logout"><button class="bg-blue-500 p-1 border border-blue-500 rounded-lg">Logout</button></a>
-    </form>
-
+    </div>
+    
     <form action="/user/changePassword" method="POST">
         <input type="hidden" id="userID" name="userID" value="<?= $_SESSION['user']['UserID'] ?? '' ?> ">
         <input type="hidden" id="username" name="username" value="<?= $_SESSION['user']['Username'] ?? '' ?>">
