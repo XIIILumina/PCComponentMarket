@@ -18,7 +18,7 @@ class projectModel {
         $quary->execute([':UserID' => $UserID, ':Title' => $Title , ':Description' => $Description]);
         $quary->fetch();
 
-        $ProjectID = $this->getProjectIdByNameAndDescriptione($Title, $Description);
+        $ProjectID = $this->getProjectIdByNameAndDescriptione($Title, $Description)['ProjectID']; //works if project title and descriptione are not thesame for mulitple projects
 
         $quary = $this->db->dbconn->prepare("INSERT INTO SheredProjects (UserID, ProjectID) VALUES (:UserID,:ProjectID)");
         $quary->execute([':UserID' => $UserID, ':ProjectID' => $ProjectID]);
@@ -72,7 +72,7 @@ class projectModel {
 
     public function getProjectIdByNameAndDescriptione(string $Title,string $Description)
     {
-        $query = $this->db->dbconn->prepare("SELECT * FROM Projects WHERE Title = :Title AND Description = :Description");
+        $query = $this->db->dbconn->prepare("SELECT ProjectID FROM Projects WHERE Title = :Title AND Description = :Description");
         $query->execute([':Title' => $Title, ':Description' => $Description]);
         return $query->fetch();
     }
