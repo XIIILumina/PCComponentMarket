@@ -42,25 +42,40 @@ require_once "../app/Views/Components/navbar.php";
             <?php
             // Iegūstam visus projektus un tos attēlojam
 
-            if(!empty($projects)) {
+            if (!empty($projects)) {
                 foreach ($projects as $project) {
                     echo '<a href="/project/show?id=' . $project['ProjectID'] . '">';
                     echo '<div class="p-4">';
                     echo '<div class="bg-white p-8 rounded-lg shadow-lg relative hover:shadow-2xl transition duration-500">';
-                    // Izveidojiet dzēšanas pogu, norādot projekta ID (tas ir tagad virs nosaukuma un apraksta)
-                    echo '<form method="POST" action="/project/delete" class="absolute top-0 right-0 mt-2 mr-2">';
+                    echo '<h1 class="text-2xl text-gray-800 font-semibold mb-3">' . $project['Title'] . '</h1>';
+                    echo '<p class="text-gray-600 leading-6 tracking-normal">' . $project['Description'] . '</p>';
+                    
+                    // Pogas tiek pārkārtotas tā, lai katras pogas bloks būtu viens pēc otra
+                    echo '<div class="flex justify-end mt-4">';
+                    echo '<form method="POST" action="/project/delete" class="mr-2">';
                     echo '<input type="hidden" name="project_id" value="' . $project['ProjectID'] . '">';
                     echo '<button type="submit" class="text-red-600 hover:text-red-900 font-bold bg-transparent border-none">Delete</button>';
                     echo '</form>';
-                    echo '<h1 class="text-2xl text-gray-800 font-semibold mb-3">' . $project['Title'] . '</h1>';
-                    echo '<p class="text-gray-600 leading-6 tracking-normal">' . $project['Description'] . '</p>';
-                    echo '</div>';
-                    echo '</div></a>';
+                    
+                    echo '<form method="POST" action="/project/addUser" class="mr-2">';
+                    echo '<input type="hidden" name="project_id" value="' . $project['ProjectID'] . '">';
+                    echo '<button type="submit" class="text-red-600 hover:text-red-900 font-bold bg-transparent border-none">Add User</button>';
+                    echo '</form>';
+                    
+                    echo '<form method="POST" action="/project/edit" class="mr-2">';
+                    echo '<input type="hidden" name="project_id" value="' . $project['ProjectID'] . '">';
+                    echo '<button type="submit" class="text-red-600 hover:text-red-900 font-bold bg-transparent border-none">Edit</button>';
+                    echo '</form>';
+                    echo '</div>'; // Beidzas flex div
+                    echo '</div>'; // Beidzas p-8 div
+                    echo '</div>'; // Beidzas p-4 div
+                    echo '</a>';
                 }
-
-            }else{
+            
+            } else {
                 echo '<h2>No projects found</h2>';
             }
+            
             ?>
         </div>
 
