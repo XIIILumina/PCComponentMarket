@@ -80,4 +80,3 @@ CREATE TABLE SheredProjects (
     FOREIGN KEY (UserID) REFERENCES Users(UserID),
     FOREIGN KEY (ProjectID) REFERENCES Projects(ProjectID)
 );
-

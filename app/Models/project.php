@@ -76,5 +76,16 @@ class projectModel {
         $query->execute([':Title' => $Title, ':Description' => $Description]);
         return $query->fetch();
     }
-
+    public function getSharedProjectsByUser(int $userID)
+    {
+        $query = $this->db->dbconn->prepare("
+            SELECT P.* 
+            FROM Projects P
+            INNER JOIN SheredProjects SP ON P.ProjectID = SP.ProjectID
+            WHERE SP.UserID = ?
+        ");
+        $query->execute([$userID]);
+        return $query->fetchAll();
+    }
+    
 }

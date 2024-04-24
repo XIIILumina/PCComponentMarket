@@ -118,11 +118,21 @@ class userModel {
     }
 
     public function searchUsers($searchValue)
-{
-    $query = $this->db->dbconn->prepare("SELECT * FROM Users WHERE Username LIKE ?");
-    $searchPattern = "%$searchValue%";
-    $query->execute([$searchPattern]);
-    return $query->fetchAll();
-}
+    {
+        $query = $this->db->dbconn->prepare("SELECT * FROM Users WHERE Username LIKE ?");
+        $searchPattern = "%$searchValue%";
+        $query->execute([$searchPattern]);
+        return $query->fetchAll();
+    }
+
+    public function addUserToProject(int $userID, int $projectID)
+    {
+        $query = $this->db->dbconn->prepare("INSERT INTO SheredProjects (UserID, ProjectID) VALUES (:userID, :projectID)");
+        $query->execute([':userID' => $userID, ':projectID' => $projectID]);
+        return $query->rowCount() > 0; // Return true if at least one row was affected
+    }
+
+
+    
 
 }

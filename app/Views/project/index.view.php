@@ -57,7 +57,7 @@ require_once "../app/Views/Components/navbar.php";
                     echo '<button type="submit" class="text-red-600 hover:text-red-900 font-bold bg-transparent border-none">Delete</button>';
                     echo '</form>';
                     
-                    echo '<form method="POST" action="/project/adduser" class="mb-2">';
+                    echo '<form method="POST" action="/project/adduser?id=' . $project['ProjectID'] . '" class="mb-2">';
                     echo '<input type="hidden" name="project_id" value="' . $project['ProjectID'] . '">';
                     echo '<button type="submit" class="text-red-600 hover:text-red-900 font-bold bg-transparent border-none">Add User</button>';
                     echo '</form>';
@@ -74,6 +74,21 @@ require_once "../app/Views/Components/navbar.php";
             
             } else {
                 echo '<h2>No projects found</h2>';
+            }
+            if (!empty($projectss)) {
+                foreach ($projectss as $projects) {
+                    echo '<a href="/project/show?id=' . $projects['ProjectID'] . '">';
+                    echo '<div class="p-4">';
+                    echo '<div class="bg-white p-8 rounded-lg shadow-lg relative hover:shadow-2xl transition duration-500">';
+                    echo '<h1 class="text-2xl text-gray-800 font-semibold mb-3">' . $projects['Title'] . '</h1>';
+                    echo '<p class="text-gray-600 leading-6 tracking-normal">' . $projects['Description'] . '</p>';
+
+                    echo '</div>'; // Beidzas flex div
+                    echo '</div>'; // Beidzas p-8 div
+                    echo '</div>'; // Beidzas p-4 div
+                    echo '</a>';
+                }
+            
             }
             
             

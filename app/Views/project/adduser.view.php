@@ -4,7 +4,6 @@ require_once "../app/Views/Components/navbar.php";
 
 // Iekļaujam projektu modeli
 
-
 ?>
 
 <body class="bg-gray-100">
@@ -23,8 +22,10 @@ require_once "../app/Views/Components/navbar.php";
             <?php
             if (!empty($users)) {
                 foreach ($users as $user) {
-                    // Izvadīt katru lietotāju informāciju šeit
-                    echo "<p>{$user['Username']}</p>";
+                    echo "<form action='' method='GET'>";
+                    echo "<input type='hidden' name='id'>";
+                    echo "<button type='submit' class='block mb-2 text-blue-500 hover:underline bg-blue-200 rounded px-4 py-2'>{$user['Username']}</button>";
+                    echo "</form>";
                 }
             } else {
                 echo '<h2>No users found</h2>';
@@ -35,4 +36,3 @@ require_once "../app/Views/Components/navbar.php";
 
 </body>
 <?php require_once "../app/Views/Components/footer.php"; ?>
-

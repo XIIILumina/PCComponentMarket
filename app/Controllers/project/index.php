@@ -10,16 +10,26 @@ if (isset($_SESSION['user'])) {
         // echo "Logged in as: " . htmlspecialchars($username);
         require_once "../app/Core/DBConnect.php";
         require_once "../app/Models/project.php";
-        $projectModel = new projectModel();
-        $db = new DBConnect();
         
+        // Create an instance of the projectModel class
+        $projectModel = new projectModel();
+
+        // No need to create a new DBConnect instance here
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['searchInput'])) {
             $searchValue = $_POST['searchInput'];
             $projects = $projectModel->searchProjectsByName($loggedInUser['UserID'], $searchValue);
-        }else{
+            
+        } else {
+            // Get projects owned by the user
             $projects = $projectModel->getAllProjectsByUser($loggedInUser['UserID']);
+            // $projects = $projectModel->getSharedProjectsByUser($loggedInUser['UserID']);
+
         }
-        
+        $projectss = $projectModel->getSharedProjectsByUser($loggedInUser['UserID']);
+
+ 
+
         require_once "../app/Views/project/index.view.php";
     } else {
         echo "Username not found in session";

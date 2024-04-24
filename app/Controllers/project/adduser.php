@@ -18,7 +18,10 @@ if (isset($_SESSION['user'])) {
         } else {
             $users = $userModel->getAllUsers(); // Iegūstiet visus lietotājus pēc noklusējuma
         }
+        $userID = isset($_POST['userID']) ? $_POST['userID'] : null;
+        $projectID = isset($_POST['projectID']) ? $_POST['projectID'] : null;
         
+        $result = $userModel->addUserToProject($userID, $projectID);
         require_once "../app/Views/project/adduser.view.php";
     } else {
         echo "Username not found in session";
