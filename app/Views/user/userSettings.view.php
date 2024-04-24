@@ -16,6 +16,7 @@
         <input type="password" name="newPassword" placeholder="New password" class="p-1 border border-blue-500 rounded-lg text-black" required>
         <button type="submit" class="bg-blue-500 text-white p-1 border border-blue-500 rounded-lg">Change Password</button>
     </form>
+    <p class="text-red-500"><?=$errors['oldPassword'] ?? ''?><p>
 
     <form action="/user/changeEmail" method="POST">
         <input type="hidden" id="userID" name="userID" value="<?= $_SESSION['user']['UserID'] ?? '' ?> ">
@@ -29,6 +30,8 @@
         <input type="password" id="userPassword" name="userPassword" placeholder="Your password" class="p-1 border border-blue-500 rounded-lg text-black" required>
         <button type="submit" class="bg-red-500 text-white p-1 border-red-500 rounded-lg">Delete Account</button>
     </form>
+
+    <p class="text-red-500"><?=$errors['delPassword'] ?? ''?><p>
 
 </div>
 <?php require_once "../app/Views/Components/footer.php"; ?>

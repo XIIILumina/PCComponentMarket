@@ -34,9 +34,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     
         if(empty($error)) {
-            $userModel->userChangePassword($_POST["userID"], $_POST["username"], $_POST["oldPassword"],$_POST["newPassword"]);
-            header("Location: /user/logout");
-            die();
+            $response = $userModel->userChangePassword($_POST["userID"], $_POST["username"], $_POST["oldPassword"],$_POST["newPassword"]);
+
+            if($response) {
+                header("Location: /user/logout");
+                die();
+            } else {
+                $errors['oldPassword'] = 'Failed to change password old password is not correct';
+                require "../app/Views/user/userSettings.view.php";
+            }
         }
 
     }

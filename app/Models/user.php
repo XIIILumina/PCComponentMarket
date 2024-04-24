@@ -83,7 +83,8 @@ class userModel {
     {
         $quary = $this->db->dbconn->prepare("UPDATE users SET Email = :newEmail WHERE UserID = :UserID");
         $quary->execute([':UserID' => $UserID, ':newEmail' => $newEmail]);
-        return $quary->fetchAll();
+        $quary->fetchAll();
+        return true;
     }
     
     public function deleteUser(int $UserID , string $username , string $password)

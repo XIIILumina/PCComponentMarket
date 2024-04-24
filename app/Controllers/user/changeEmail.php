@@ -18,6 +18,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if(!Validator::Email($email)) {
             $errors[] = 'Not Valid Email';
+        }else{
+            $errors["newEmail"] = "Invalid Email";
+            require "../app/Views/user/userSettings.view.php";
         }
 
         if(!Validator::Number($_POST["userID"])) {

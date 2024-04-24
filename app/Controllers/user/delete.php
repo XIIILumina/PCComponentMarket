@@ -27,9 +27,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     
         if(empty($error)) {
-            $userModel->deleteUser($_POST["userID"], $_POST["username"], $_POST["userPassword"]);
-            header("Location: /user/logout");
-            die();
+            $response = $userModel->deleteUser($_POST["userID"], $_POST["username"], $_POST["userPassword"]);
+
+            if($response){
+                header("Location: /user/logout");
+                die();
+            }else{
+                $errors["delPassword"] = "the password is not correct";
+                require "../app/Views/user/userSettings.view.php";
+            }
         }
 
     }
