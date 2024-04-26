@@ -19,7 +19,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 
         if(empty($error)) {
             $userModel->addUserToProject($userID, $projectID);
-            header("Location: /project/");
+            header("Location: /project");
         }else{
             echo "<p>Error: UserID or ProjectID not provided.</p>";
         }
