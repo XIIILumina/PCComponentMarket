@@ -1,14 +1,14 @@
 <?php require_once "../app/Views/Components/head.php"; ?>
 <?php require_once "../app/Views/Components/navbar.php"; ?>
 <div class="h-screen content-center items-center grid bg-gradient-to-r from-blue-200 from-20% via-gray-100 via%60 to-blue-300 bg-cover bg-no-repeat backdrop-blur-2xl bckdrop-rounded-3xl" >
-    <div class="container mx-auto w-4/12  ">    
+    <div class="container mx-auto w-4/12 shadow-xl ">    
         <div class="backdrop-blur-xl p-4 bg-white/30  ...">
         <div class="text-center mb-8">
             <h1 class="text-3xl mb-4 p-4 font-bold">Login</h1>
         </div>
             <form class="max-w-md mx-auto" method="post"?>
                 <div class="mb-4">
-                    <label for="username" class="block text-sm font-semibold mb-2">Username:</label>
+                    <label for="username" class="block text-sm font-semibold mb-2">Username</label>
                     <input type="text" value="<?= $_POST["username"] ?? null?>" id="username" name="username" required class="w-full px-4 py-2 border border-black rounded-md focus:outline-none focus:border-blue-500">
                     <!-- Added border class -->
                 </div>
