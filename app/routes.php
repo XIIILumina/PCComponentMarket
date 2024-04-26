@@ -30,4 +30,5 @@ return [
     '/project/show' => '../app/Controllers/project/show.php',
     '/project/edit' => '../app/Controllers/project/edit.php',
     '/project/adduser' => '../app/Controllers/project/adduser.php',
+    '/project/addusertoproject' => '../app/Controllers/project/addUserToProject.php',
 ];

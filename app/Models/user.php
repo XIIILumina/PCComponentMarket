@@ -129,7 +129,7 @@ class userModel {
     {
         $query = $this->db->dbconn->prepare("INSERT INTO SheredProjects (UserID, ProjectID) VALUES (:userID, :projectID)");
         $query->execute([':userID' => $userID, ':projectID' => $projectID]);
-        return $query->rowCount() > 0; // Return true if at least one row was affected
+        return $query->fetchAll();
     }
 
 

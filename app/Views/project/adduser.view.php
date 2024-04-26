@@ -22,8 +22,9 @@ require_once "../app/Views/Components/navbar.php";
             <?php
             if (!empty($users)) {
                 foreach ($users as $user) {
-                    echo "<form action='' method='GET'>";
-                    echo "<input type='hidden' name='id'>";
+                    echo "<form action='/project/addusertoproject' method='POST'>";
+                    echo "<input type='hidden' name='UserID' value='{$user['UserID']}'>";
+                    echo "<input type='hidden' name='projectID' value='{$_GET['id']}'>";
                     echo "<button type='submit' class='block mb-2 text-blue-500 hover:underline bg-blue-200 rounded px-4 py-2'>{$user['Username']}</button>";
                     echo "</form>";
                 }
