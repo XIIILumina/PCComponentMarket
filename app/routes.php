@@ -11,6 +11,7 @@ return [
     '/user/logout' => '../app/Controllers/user/logout.php',
     '/user/lostPassword' => '../app/Controllers/user/lostPassword.php',
     '/user/userSettings' => '../app/Controllers/user/userSettings.php',
+    '/user/editPassword' => '../app/views/user/editPassword.view.php',
     '/user/changePassword' => '../app/Controllers/user/changePassword.php',
     '/user/changeEmail' => '../app/Controllers/user/changeEmail.php',
     '/user/delete' => '../app/Controllers/user/delete.php',
