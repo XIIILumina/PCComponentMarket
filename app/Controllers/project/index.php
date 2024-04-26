@@ -18,15 +18,15 @@ if (isset($_SESSION['user'])) {
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['searchInput'])) {
             $searchValue = $_POST['searchInput'];
-            $projects = $projectModel->searchProjectsByName($loggedInUser['UserID'], $searchValue);
+             $projectss = $projectModel->searchProjectsByName($loggedInUser['UserID'], $searchValue);
+            // $projectss = $projectModel->getSharedProjectsByUser($loggedInUser['UserID'], $searchValue);
             
         } else {
             // Get projects owned by the user
-            $projects = $projectModel->getAllProjectsByUser($loggedInUser['UserID']);
-            // $projects = $projectModel->getSharedProjectsByUser($loggedInUser['UserID']);
-
+            // $projects = $projectModel->getAllProjectsByUser($loggedInUser['UserID']);
+            $projectss = $projectModel->getSharedProjectsByUser($loggedInUser['UserID']);
         }
-        $projectss = $projectModel->getSharedProjectsByUser($loggedInUser['UserID']);
+ 
 
  
 

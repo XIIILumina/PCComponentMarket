@@ -27,8 +27,11 @@ class projectModel {
     // Ievietojiet šo kodu jūsu projectModel klasē
     public function getAllProjectsByUser(int $UserID)
     {
-        $quary = $this->db->dbconn->prepare("SELECT * FROM Projects WHERE UserID = ?");
-        $quary->execute([$UserID]);
+        $quary = $this->db->dbconn->prepare("SELECT * FROM SheredProjects
+        LEFT JOIN Projects
+        ON SheredProjects.ProjectID = Projects.ProjectID
+        WHERE UserID = :UserID;");
+        $quary->execute([':UserID' => $UserID]);
         return $quary->fetchAll();
     }
 
@@ -65,7 +68,11 @@ class projectModel {
     public function searchProjectsByName(int $UserID, string $searchQuery)
     {
         $searchQuery = htmlspecialchars($searchQuery);
-        $query = $this->db->dbconn->prepare("SELECT * FROM Projects WHERE UserID = :UserID AND Title LIKE :searchQuery");
+        $query = $this->db->dbconn->prepare("SELECT *
+        FROM SheredProjects
+        LEFT JOIN Projects ON SheredProjects.ProjectID = Projects.ProjectID
+        WHERE SheredProjects.UserID = :UserID
+        AND Projects.Title LIKE :searchQuery");
         $query->execute([':UserID' => $UserID, ':searchQuery' => "%$searchQuery%"]);
         return $query->fetchAll();
     }
