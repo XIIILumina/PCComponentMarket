@@ -131,7 +131,17 @@ class userModel {
         $query->execute([':userID' => $userID, ':projectID' => $projectID]);
         return $query->fetchAll();
     }
-
+    public function getUsersByProjectID($projectID) {
+        $query = $this->db->dbconn->prepare("
+            SELECT u.* 
+            FROM users u 
+            JOIN sharedProjects sp ON u.UserID = sp.UserID 
+            WHERE sp.ProjectID = :projectID
+        ");
+        $query->execute([':projectID' => $projectID]);
+        return $query->fetchAll();
+    }
+    
 
     
 

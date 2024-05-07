@@ -50,22 +50,29 @@ require_once "../app/Views/Components/navbar.php";
                     echo '<div class="bg-white p-8 rounded-lg shadow-lg relative hover:shadow-2xl transition duration-500">';
                     echo '<h1 class="text-2xl text-gray-800 font-semibold mb-3">' . $projects['Title'] . '</h1>';
                     echo '<p class="text-gray-600 leading-6 tracking-normal">' . $projects['Description'] . '</p>';
+                    if (!empty($users)) {
+                        foreach ($users as $user) {
+                            echo "<button type='submit' class='block mb-2 text-blue-500 hover:underline bg-blue-200 rounded px-4 py-2'>{$user['Username']}</button>";
+                        }
+                    } else {
+ 
+                    }
                     
                     // Pogas tiek pārkārtotas tā, lai katras pogas bloks būtu viens pēc otra vertikāli labajā augšējā stūrī
                     echo '<div class="flex flex-col-reverse items-end">';
                     echo '<form method="POST" action="/project/delete" class="mb-2">';
                     echo '<input type="hidden" name="project_id" value="' . $projects['ProjectID'] . '">';
-                    echo '<button type="submit" class="text-red-600 hover:text-red-900 font-bold bg-transparent border-none">Delete</button>';
+                    echo '<button type="submit" class="text-red-500 hover:text-red-900 font-bold bg-transparent border-none">Delete</button>';
                     echo '</form>';
                     
                     echo '<form method="POST" action="/project/adduser?id=' . $projects['ProjectID'] . '" class="mb-2">';
                     echo '<input type="hidden" name="project_id" value="' . $projects['ProjectID'] . '">';
-                    echo '<button type="submit" class="text-red-600 hover:text-red-900 font-bold bg-transparent border-none">Add User</button>';
+                    echo '<button type="submit" class="text-orange-500 hover:text-orange-700 font-bold bg-transparent border-none">Add User</button>';
                     echo '</form>';
                     
                     echo '<form method="POST" action="/project/edit">';
                     echo '<input type="hidden" name="project_id" value="' . $projects['ProjectID'] . '">';
-                    echo '<button type="submit" class="text-red-600 hover:text-red-900 font-bold bg-transparent border-none">Edit</button>';
+                    echo '<button type="submit" class="text-green-600 hover:text-green-800 font-bold bg-transparent border-none">Edit</button>';
                     echo '</form>';
                     echo '</div>'; // Beidzas flex div
                     echo '</div>'; // Beidzas p-8 div

@@ -10,7 +10,8 @@ if (isset($_SESSION['user'])) {
         // echo "Logged in as: " . htmlspecialchars($username);
         require_once "../app/Core/DBConnect.php";
         require_once "../app/Models/project.php";
-        
+        require_once "../app/Models/user.php";
+        $userModel = new userModel();
         // Create an instance of the projectModel class
         $projectModel = new projectModel();
 
@@ -20,11 +21,13 @@ if (isset($_SESSION['user'])) {
             $searchValue = $_POST['searchInput'];
              $projectss = $projectModel->searchProjectsByName($loggedInUser['UserID'], $searchValue);
             // $projectss = $projectModel->getSharedProjectsByUser($loggedInUser['UserID'], $searchValue);
+
             
         } else {
             // Get projects owned by the user
             // $projects = $projectModel->getAllProjectsByUser($loggedInUser['UserID']);
             $projectss = $projectModel->getSharedProjectsByUser($loggedInUser['UserID']);
+
         }
  
 
