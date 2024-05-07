@@ -99,4 +99,27 @@ class projectModel {
         return $query->fetchAll();
     }
     
+    public function updateProject($projectID, $title, $description) {
+        try {
+            // Sagatavojam SQL vaicājumu
+            $query = $this->db->dbconn->prepare("UPDATE Projects SET Title = :Title, Description = :Description WHERE ProjectID = :ProjectID");
+    
+            // Bind parametri un izpildām vaicājumu
+            $query->execute([
+                ':Title' => $title,
+                ':Description' => $description,
+                ':ProjectID' => $projectID
+            ]);
+    
+            // Atgriežam veiksmības ziņu vai ietekmēto rindu skaitu
+            return $query->rowCount(); // 1, ja atjaunināšana bija veiksmīga, 0, ja neveiksmīga vai nekas netika mainīts
+        } catch (PDOException $e) {
+            // Varat apstrādāt kļūdas šeit, ja nepieciešams
+            // Piemēram, varat pierakstīt kļūdu žurnālā vai izvadīt kļūdas paziņojumu
+            // echo "Kļūda: " . $e->getMessage();
+            return false; // Atgriežam false, ja ir kļūda
+        }
+    }
+
+    
 }

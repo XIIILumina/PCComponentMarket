@@ -63,7 +63,7 @@ require_once "../app/Views/Components/navbar.php";
                     echo '<button type="submit" class="text-red-600 hover:text-red-900 font-bold bg-transparent border-none">Add User</button>';
                     echo '</form>';
                     
-                    echo '<form method="POST" action="/project/edit" class="mb-2">';
+                    echo '<form method="POST" action="/project/edit">';
                     echo '<input type="hidden" name="project_id" value="' . $projects['ProjectID'] . '">';
                     echo '<button type="submit" class="text-red-600 hover:text-red-900 font-bold bg-transparent border-none">Edit</button>';
                     echo '</form>';
