@@ -49,6 +49,10 @@ class projectModel {
         $queryTasks = $this->db->dbconn->prepare("DELETE FROM Tasks WHERE ProjectID = :ProjectID");
         $queryTasks->execute([':ProjectID' => $projectID]);
     
+        // Dzēšam no SharedProjects tabulas, kur šis projekts ir koplietots
+        $queryShared = $this->db->dbconn->prepare("DELETE FROM SheredProjects WHERE ProjectID = :ProjectID");
+        $queryShared->execute([':ProjectID' => $projectID]);
+    
         // Dzēšam pašu projektu
         $queryProject = $this->db->dbconn->prepare("DELETE FROM Projects WHERE ProjectID = :ProjectID");
         $queryProject->execute([':ProjectID' => $projectID]);
