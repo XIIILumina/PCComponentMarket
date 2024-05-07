@@ -4,7 +4,7 @@ require_once "../app/Views/Components/navbar.php";
 ?>
 <div class="h-screen">
     <div class="bg-white md:py-8 px-4 lg:max-w-7xl lg:mx-auto lg:px-8">
-        <p class="text-4xl font-bold text-gray-800 mb-8">March 2021</p>
+        <p class="text-4xl font-bold text-gray-800 mb-8"><?= date('F , Y') ?></p>
         <div class="inline-flex flex-col space-y-1 items-start justify-start h-full w-full">
         <div class="inline-flex space-x-28 items-start justify-start pr-24 h-full w-full">
             <p class="w-12 h-full text-sm font-medium text-gray-800 uppercase">M</p>
