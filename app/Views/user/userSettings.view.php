@@ -15,7 +15,7 @@
             <div class="bg-white dark:bg-zinc-800 shadow-lg p-6 space-y-6 rounded-lg">
                 <h1 class="text-black dark:text-white text-3xl font-semibold">User Settings</h1>
                 
-                <p class="text-black dark:text-white text-xl">Username: <span id="usernameDisplay"></span></p>
+                <p class="text-black dark:text-white text-xl">Username: <span id="usernameDisplay"> </span></p>
                 <p class="text-black dark:text-white text-xl">User email: <span id="emailDisplay"></span></p>
 
                 <div class="space-y-4">

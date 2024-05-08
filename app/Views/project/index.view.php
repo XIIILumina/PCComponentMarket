@@ -8,7 +8,7 @@ require_once "../app/Views/Components/navbar.php";
 ?>
 
 <body class="bg-gray-100">
-    <div class="h-screen">
+    <div class="h-full">
     <form id="searchForm" class="mb-4" method="POST" action="">
             <input type="text" name="searchInput" placeholder="Atrodi savu projektu" class="px-4 py-2 border border-gray-300 mr-2 rounded-lg">
             <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded-lg">Search</button>
@@ -50,13 +50,27 @@ require_once "../app/Views/Components/navbar.php";
                     echo '<div class="bg-white p-8 rounded-lg shadow-lg relative hover:shadow-2xl transition duration-500">';
                     echo '<h1 class="text-2xl text-gray-800 font-semibold mb-3">' . $projects['Title'] . '</h1>';
                     echo '<p class="text-gray-600 leading-6 tracking-normal">' . $projects['Description'] . '</p>';
-                    if (!empty($users)) {
-                        foreach ($users as $user) {
-                            echo "<button type='submit' class='block mb-2 text-blue-500 hover:underline bg-blue-200 rounded px-4 py-2'>{$user['Username']}</button>";
-                        }
-                    } else {
- 
+  
+                    echo "<ul>";
+                    foreach ($projects['Users'] as $user) {
+
+      
+
+
+
+
+
+                        echo '<form method="POST" action="/project/removeuser" class="mb-2">';
+                        echo "<li>{$user['Username']}</li>";
+                        echo '<input type="hidden" name="project_id" value="' . $projects['ProjectID'] . '">';
+                        echo '<button type="submit" class="text-red-500 hover:text-red-900 font-bold bg-transparent border-none">Noņemt user</button>';
+                        echo '</form>';
+
+
+
                     }
+                    echo "</ul>";
+
                     
                     // Pogas tiek pārkārtotas tā, lai katras pogas bloks būtu viens pēc otra vertikāli labajā augšējā stūrī
                     echo '<div class="flex flex-col-reverse items-end">';

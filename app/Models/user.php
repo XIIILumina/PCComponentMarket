@@ -131,16 +131,20 @@ class userModel {
         $query->execute([':userID' => $userID, ':projectID' => $projectID]);
         return $query->fetchAll();
     }
+
     public function getUsersByProjectID($projectID) {
         $query = $this->db->dbconn->prepare("
-            SELECT u.* 
+            SELECT u.Username 
             FROM users u 
-            JOIN sharedProjects sp ON u.UserID = sp.UserID 
+            INNER JOIN SheredProjects sp ON u.UserID = sp.UserID 
             WHERE sp.ProjectID = :projectID
         ");
         $query->execute([':projectID' => $projectID]);
-        return $query->fetchAll();
+        return $query->fetchAll(PDO::FETCH_ASSOC); // Izmantojiet fetchAll, lai iegūtu visus lietotājus
     }
+    
+    
+    
     
 
     
