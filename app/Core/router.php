@@ -10,5 +10,3 @@ if (array_key_exists($url, $routes)) {
     http_response_code(404);
     require "../app/Controllers/404.php";
 }
-
-
