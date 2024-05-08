@@ -33,4 +33,6 @@ return [
     '/project/update' => '../app/Controllers/project/update.php',
     '/project/adduser' => '../app/Controllers/project/adduser.php',
     '/project/addusertoproject' => '../app/Controllers/project/addUserToProject.php',
+    '/project/removeuser' => '../app/Controllers/project/removeuser.php',
+
 ];
