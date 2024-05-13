@@ -15,6 +15,7 @@ CREATE TABLE Projects (
     Title VARCHAR(100) NOT NULL,
     Description TEXT,
     FOREIGN KEY (UserID) REFERENCES Users(UserID)
+    
 );
 
 -- Uzdevumu tabula
