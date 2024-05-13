@@ -19,7 +19,7 @@ return [
     '/task/create' => '../app/Controllers/task/create.php',
     '/task/delete' => '../app/Controllers/task/delete.php',
     '/task/show' => '../app/Controllers/task/index.php',
-    '/task/edit' => '../app/Controllers/task/index.php',
+    '/task/edit' => '../app/Controllers/task/edit.php',
     '/calander' => '../app/Controllers/calander/index.php',
     '/calander/create' => '../app/Controllers/calander/index.php',
     '/calander/delete' => '../app/Controllers/calander/index.php',
