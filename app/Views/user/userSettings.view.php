@@ -1,7 +1,7 @@
 <?php require_once "../app/Views/Components/head.php"; ?>
 <?php  require_once "../app/Views/Components/navbar.php"; ?> 
 
-<body class="h-screen  bg-gradient-to-r from-blue-200 from-20% via-gray-100 via%60 to-blue-300 bg-cover bg-no-repeat backdrop-blur-2xl bckdrop-rounded-3xl">
+<body class="h-screen bg-gradient-to-r from-blue-200 from-20% via-gray-100 via%60 to-blue-300 bg-cover bg-no-repeat backdrop-blur-2xl bckdrop-rounded-3xl">
         
     <div class="flex justify-end p-5">
         <a href="/user/logout">
@@ -45,5 +45,3 @@
     </div>
 </body>
 
-
-<!-- <php require_once "../app/Views/Components/footer.php"; ?> -->
