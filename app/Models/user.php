@@ -142,11 +142,19 @@ class userModel {
         $query->execute([':projectID' => $projectID]);
         return $query->fetchAll(PDO::FETCH_ASSOC); // Izmantojiet fetchAll, lai iegūtu visus lietotājus
     }
-    
-    
-    
-    
 
+    public function getUserIdByName(string $username)
+    {
+        $query = $this->db->dbconn->prepare("SELECT UserID FROM users WHERE Username = :username");
+        $query->execute([':username' => $username]);
+        return $query->fetch();
+    }
     
-
+    
+    public function removeUserFromProject(int $userID, int $projectID)
+    {
+        $query = $this->db->dbconn->prepare("DELETE FROM SheredProjects WHERE UserID = :userID AND ProjectID = :projectID");
+        $query->execute([':userID' => $userID, ':projectID' => $projectID]);
+        return $query->rowCount(); // Atgriežam ietekmēto ierakstu skaitu
+    }
 }

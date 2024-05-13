@@ -51,25 +51,20 @@ require_once "../app/Views/Components/navbar.php";
                     echo '<h1 class="text-2xl text-gray-800 font-semibold mb-3">' . $projects['Title'] . '</h1>';
                     echo '<p class="text-gray-600 leading-6 tracking-normal">' . $projects['Description'] . '</p>';
   
-                    echo "<ul>";
-                    foreach ($projects['Users'] as $user) {
+                        echo "<ul>";
+                        foreach ($projects['Users'] as $user) {
+                            echo '<form method="POST" action="/project/removeuser?id'. $projects['ProjectID'] .'" class="mb-2">';
+                            echo "<li>{$user['Username']}</li>";
+                            echo '<input type="hidden" name="project_id" value="' . $projects['ProjectID'] . '">';
+                            echo '<input type="hidden" name="username" value="' . $user['Username'] . '">'; // Pievieno slēpto lauku ar lietotāja ID
 
-      
-
-
-
-
-
-                        echo '<form method="POST" action="/project/removeuser" class="mb-2">';
-                        echo "<li>{$user['Username']}</li>";
-                        echo '<input type="hidden" name="project_id" value="' . $projects['ProjectID'] . '">';
-                        echo '<button type="submit" class="text-red-500 hover:text-red-900 font-bold bg-transparent border-none">Noņemt user</button>';
-                        echo '</form>';
+                            echo '<button type="submit" class="text-red-500 hover:text-red-900 font-bold bg-transparent border-none">Noņemt user</button>';
+                            echo '</form>';
 
 
 
-                    }
-                    echo "</ul>";
+                        }
+                        echo "</ul>";
 
                     
                     // Pogas tiek pārkārtotas tā, lai katras pogas bloks būtu viens pēc otra vertikāli labajā augšējā stūrī

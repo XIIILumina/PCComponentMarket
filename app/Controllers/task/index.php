@@ -19,7 +19,6 @@ if (isset($_SESSION['user'])) {
     header("Location: /");
 }
 
-
 require_once "../app/Views/task/index.view.php";
 ?>
 
