@@ -102,5 +102,5 @@ require_once "../app/Views/Components/navbar.php";
     </div>
 
 </body>
-<?php require_once "../app/Views/Components/footer.php"; ?>
 
+<?php require_once "../app/Views/Components/footer.php"; ?>
