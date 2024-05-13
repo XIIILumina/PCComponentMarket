@@ -8,14 +8,15 @@
             <button class="text-white bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded">Logout</button>   
         </a>
     </div>
-                <div class="flex justify-center px-5 py-10">
-                    <div class="w-full max-w-4xl">
-                        <div class="bg-white dark:bg-zinc-800 shadow-lg p-6 space-y-6 rounded-lg">
 
-                            <h1 class="text-black dark:text-white text-3xl font-semibold">User Settings</h1>
+        <div class="flex justify-center px-5 py-10">
+            <div class="w-full max-w-4xl">
+                <div class="bg-white dark:bg-zinc-800 shadow-lg p-6 space-y-6 rounded-lg">
+
+                <h1 class="text-black dark:text-white text-3xl font-semibold">User Settings</h1>
                             
-                            <p class="text-black dark:text-white text-xl">Username: <?= $_SESSION['user']['Username'] ?? '' ?></p> <span id="usernameDisplay"> </span></p>
-                            <p class="text-black dark:text-white text-xl">User email: <?= $_SESSION['user']['Email'] ?? '' ?></p> <span id="emailDisplay"></span></p>
+                <p class="text-black dark:text-white text-xl">Username: <?= $_SESSION['user']['Username'] ?? '' ?></p> <span id="usernameDisplay"> </span></p>
+                 <p class="text-black dark:text-white text-xl">User email: <?= $_SESSION['user']['Email'] ?? '' ?></p> <span id="emailDisplay"></span></p>
                 
                 <form action="/user/changePassword" method="POST" class="flex flex-col space-y-2 md:flex-row md:space-x-3 md:space-y-0">
                     <input type="hidden" id="userID" name="userID" value="<?= $_SESSION['user']['UserID'] ?? '' ?> ">
@@ -37,9 +38,6 @@
                     <input type="password" id="userPassword" name="userPassword" placeholder="Your password" class="p-1 border border-blue-500 rounded-lg text-black" required>
                     <button type="submit" class="bg-red-500 hover:bg-red-700 text-white p-3 rounded-lg">Delete Account</button>
                 </form>
-
-                <p class="text-red-500"><?=$errors['delPassword'] ?? ''?><p>
-
             </div>
         </div>
     </div>
