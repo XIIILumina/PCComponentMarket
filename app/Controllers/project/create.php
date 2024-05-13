@@ -24,7 +24,7 @@ if (isset($_SESSION['user'])) {
             if (!Validator::String($description, 10, 255)) {
                 $errors[] = "Description must be between 10 and 255 characters";
             }
-3
+
             // Ja nav validācijas kļūdu, izveidojam projektu
             if (empty($errors)) {
                 $projectModel = new projectModel;
