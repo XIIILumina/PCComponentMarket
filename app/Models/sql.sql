@@ -1,4 +1,4 @@
-CREATE DATABASE ComponentShop;
+CREATE DATABASE fancytodo;
 use fancytodo;
 -- sita kroc bus log in tabula, jeb lietotaju tabula !!!!
 CREATE TABLE Users (
